@@ -5,22 +5,17 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: {
-        app: [
+        bundle: [
             './src/ts/app.tsx'
         ]
     },
     output: {
         path: __dirname + '/dist',
-        filename: '[name].js',
-        library: 'react-arcgis',
-        libraryTarget: 'umd',
-        umdNamedDefine: true
+        filename: '[name].js'
     },
 
-    devtool: 'source-map',
-
     resolve: {
-        extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js', '.jsx'],
+        extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js', '.jsx', '.scss'],
         alias: {
             'react': 'preact-compat',
             'react-dom': 'preact-compat'
