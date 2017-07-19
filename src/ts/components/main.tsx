@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Bermuda from './bermuda';
+import Bermuda from './SiteSuitability';
 
 interface IComponentProps {};
 
@@ -34,13 +34,6 @@ export default class Main extends React.Component<IComponentProps, IComponentSta
                             <div className="tablet-hide">
                                 <a className="skip-to-content" href="#skip-to-content">Skip To Content</a>
                                 <a href="#" className="top-nav-title">Model Explorer</a>
-                                <nav className="top-nav-list" role="navigation" aria-labelledby="topnav">
-                                    <a className="top-nav-link" href="#">Possible</a>
-                                    <a className="top-nav-link" href="#">Links</a>
-                                    <a className="top-nav-link" href="#">To</a>
-                                    <a className="top-nav-link" href="#">Other</a>
-                                    <a className="top-nav-link" href="#">Stuff</a>
-                                </nav>
 
                                 <nav className="class-top-nav-list right" role="navigation" aria-labelledby="usernav">
                                     <a
