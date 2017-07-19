@@ -27,7 +27,7 @@ const bermudaTriangle = (
 
 export default (props) => (
     <Scene
-        style={{ width: '100vw', height: '100vh' }}
+        style={{ display: 'inline-block', height: `${props.mapHeight}px`, width: '50%' }}
         mapProperties={{ basemap: 'satellite' as __esri.BasemapProperties }}
         viewProperties={{ scale: 500000000 }}
     >
