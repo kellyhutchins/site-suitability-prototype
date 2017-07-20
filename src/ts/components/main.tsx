@@ -1,39 +1,65 @@
 import * as React from 'react';
-import Bermuda from './SiteSuitability';
+import MapWindow from './MapWindow';
 
 interface IComponentProps {};
 
 interface IComponentState {
-    height: number;
+    height: string;
+    width: string;
+    itemHeight: string;
+    itemWidth: string;
+    maps: Array<{
+        key: string;
+        title: string;
+        [propName: string]: any;
+    }>;
 }
 
 export default class Main extends React.Component<IComponentProps, IComponentState> {
     constructor(props) {
         super(props);
         this.state = {
-            height: 80
+            height: '100%',
+            width: '100%',
+            itemHeight: '100%',
+            itemWidth: '100%',
+            maps: [
+                {
+                    key: Math.random().toString(36).substring(5),
+                    title: 'Map 1'
+                }
+            ]
         };
+        this.handleMapClose = this.handleMapClose.bind(this);
+        this.handleMapClone = this.handleMapClone.bind(this);
+        this.updateWindowContainerSize = this.updateWindowContainerSize.bind(this);
     }
 
     public componentDidMount() {
-        const w = window;
-        const d = document;
-        const e = d.documentElement;
-        const g = d.getElementsByTagName('body')[0];
-        const windowHeight = w.innerHeight|| e.clientHeight|| g.clientHeight;
-        const height = (windowHeight - document.getElementById('app-header').clientHeight);
-        this.setState({ height });
+        window.addEventListener('resize', this.updateWindowContainerSize);
+        this.updateWindowContainerSize();
     }
 
     public render() {
+        const Maps = this.state.maps.map((item, i) => (
+            <MapWindow
+                map={item}
+                itemHeight={this.state.itemHeight}
+                itemWidth={this.state.itemWidth}
+                handleMapClose={this.handleMapClose}
+                handleMapClone={this.handleMapClone}
+                index={i}
+                key={item.key}
+            />
+        ));
         return (
             <div className="app-container">
-                <header id="app-header" className="top-nav fade-in">
+                <header id="app-nav" className="top-nav fade-in">
                     <div className="grid-container">
                         <div className="column-24">
                             <div className="tablet-hide">
                                 <a className="skip-to-content" href="#skip-to-content">Skip To Content</a>
-                                <a href="#" className="top-nav-title">Model Explorer</a>
+                                <a href="#" className="top-nav-title">Site Suitability Prototype</a>
 
                                 <nav className="class-top-nav-list right" role="navigation" aria-labelledby="usernav">
                                     <a
@@ -56,7 +82,7 @@ export default class Main extends React.Component<IComponentProps, IComponentSta
                                     </a>
                                 </nav>
                             <header className="top-nav-flex-title">
-                                <a href="/" className="top-nav-link">Model Explorer</a>
+                                <a href="/" className="top-nav-link">Site Suitability Prototype</a>
                             </header>
                                 <nav className="top-nav-flex-list text-right" role="navigation" aria-labelledby="usernav">
                                     <button
@@ -70,9 +96,61 @@ export default class Main extends React.Component<IComponentProps, IComponentSta
                         </div>
                     </div>
                 </header>
-                <Bermuda mapHeight={this.state.height} />
-                <Bermuda mapHeight={this.state.height} />
+                <div
+                    className="window-container"
+                    style={{ width: this.state.width, height: this.state.height }}
+                >
+                    {Maps}
+                </div>
             </div>
         );
+    }
+
+    public handleMapClose(index) {
+        const newArr = [...this.state.maps];
+        newArr.splice(index, 1);
+        this.setState({
+            maps: newArr
+        });
+        this.updateWindowContainerSize();
+    }
+
+    public handleMapClone(index) {
+        const newMap = {
+            ...this.state.maps[index],
+            key: Math.random().toString(36).substring(5),
+            title: `${this.state.maps[index].title} (clone)`
+        };
+        this.setState({
+            maps: this.state.maps
+                    .slice(0, index + 1)
+                    .concat([newMap])
+                    .concat(
+                        index === this.state.maps.length - 1 ?
+                        [] :
+                        this.state.maps.slice(index - (this.state.maps.length - 1))
+                    )
+        });
+        this.updateWindowContainerSize();
+    }
+
+    private updateWindowContainerSize() {
+        const widthPx = document.body.clientWidth;
+        const heightPx = (document.body.clientHeight - document.getElementById('app-nav').clientHeight);
+        if ( widthPx > heightPx ) {
+            this.setState({
+                height: `${heightPx}px`,
+                width: `${widthPx}px`,
+                itemHeight: '100%',
+                itemWidth: `${widthPx / this.state.maps.length}px`
+            });
+        } else {
+            this.setState({
+                height: `${heightPx}px`,
+                width: `${widthPx}px`,
+                itemHeight: `${heightPx / this.state.maps.length}px`,
+                itemWidth: '100%'
+            });
+        }
     }
 };
