@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Map } from 'react-arcgis';
+import MapToolbar from './MapToolbar';
 
 interface IComponentProps {
     handleMapClone: (index: number) => void;
@@ -37,17 +38,12 @@ export default class MapWindow extends React.Component<IComponentProps, ICompone
                 className="map-window"
                 style={{ width: this.props.itemWidth, height: this.props.itemHeight }}
             >
-                <header className="map-toolbar">
-                    <p className="map-toolbar-item icon-ui-handle-vertical">{this.props.map.title}</p>
-                    <i
-                        className="map-toolbar-item map-toolbar-button icon-ui-close"
-                        onClick={() => { this.props.handleMapClose(this.props.index) }}
-                    />
-                    <i
-                        className="map-toolbar-item map-toolbar-button icon-ui-plus"
-                        onClick={() => { this.props.handleMapClone(this.props.index) }}
-                    />
-                </header>
+                <MapToolbar
+                    handleMapClone={this.props.handleMapClone}
+                    handleMapClose={this.props.handleMapClose}
+                    index={this.props.index}
+                    map={this.props.map}
+                />
                 <Map
                     className="map-container"
                     mapProperties={{ basemap: 'osm' as __esri.BasemapProperties }}
