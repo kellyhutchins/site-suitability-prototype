@@ -6,7 +6,48 @@
     overflow: hidden;
 }
 
+#app-nav {
+    border-bottom: 1px solid black;
+    box-sizing: border-box;
+}
+
+.window-container {
+    position: relative;
+    background-color: $darker-gray;
+}
+
 .app-container {
     width: 100%;
     height: 100%;
+}
+
+.map-window {
+    background-color: white;
+    box-sizing: border-box;
+    border: 1px solid $gray;
+    display: inline-block;
+}
+
+.map-toolbar {
+    background-color: $lightest-gray;
+    border-bottom: 1px solid $gray;
+    box-sizing: border-box;
+    cursor: move;
+    height: 2rem;
+    padding: 4px 2px 4px 10px;
+    width: 100%;
+}
+
+.map-toolbar-item {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.map-toolbar-button {
+    float: right;
+}
+
+.map-container {
+    height: calc(100% - 2rem);
+    width: 100%;
 }
