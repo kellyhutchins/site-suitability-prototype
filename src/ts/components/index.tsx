@@ -12,7 +12,11 @@ interface IComponentState {
     maps: Array<{
         key: string;
         title: string;
-        [propName: string]: any;
+        id: string;
+        exposedProperties: {
+            [propName: string]: any;
+        }
+        viewpoint?: __esri.Viewpoint;
     }>;
 }
 
@@ -26,8 +30,16 @@ export default class Main extends React.Component<IComponentProps, IComponentSta
             itemWidth: '100%',
             maps: [
                 {
+                    id: 'ec108b241fe24cbab6313c0134e53cec',
                     key: Math.random().toString(36).substring(5),
-                    title: 'Map 1'
+                    title: 'Map 1',
+                    exposedProperties: {
+                        wtVac: 10,
+                        wtImpR: 20,
+                        wtYear: 40,
+                        wtLanduse: 30,
+                        wtRFAR: 0
+                    }
                 }
             ]
         };

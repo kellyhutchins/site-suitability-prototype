@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { Map } from 'react-arcgis';
+import esriPromise from 'esri-promise';
+import { WebMap } from 'react-arcgis';
 import MapToolbar from './MapToolbar';
 
 interface IComponentProps {
@@ -13,7 +14,11 @@ interface IComponentProps {
     map: {
         key: string;
         title: string;
-        [propName: string]: any;
+        id: string;
+        exposedProperties: {
+            [propName: string]: any;
+        }
+        viewpoint?: __esri.Viewpoint;
     };
 }
 
@@ -30,6 +35,8 @@ export default class MapWindow extends React.Component<IComponentProps, ICompone
             view: null
         };
         this.handleMapLoad = this.handleMapLoad.bind(this);
+        this.parseArcade = this.parseArcade.bind(this);
+        this.updateRenderer = this.updateRenderer.bind(this);
     }
 
     public render() {
@@ -44,8 +51,9 @@ export default class MapWindow extends React.Component<IComponentProps, ICompone
                     index={this.props.index}
                     map={this.props.map}
                 />
-                <Map
+                <WebMap
                     className="map-container"
+                    id={this.props.map.id}
                     mapProperties={{ basemap: 'osm' as __esri.BasemapProperties }}
                     viewProperties={ this.props.map.viewpoint ? { viewpoint: this.props.map.viewpoint } : {}}
                     onLoad={this.handleMapLoad}
@@ -54,13 +62,46 @@ export default class MapWindow extends React.Component<IComponentProps, ICompone
         );
     }
 
-    private handleMapLoad(map: __esri.Map, view: __esri.MapView) {
+    private handleMapLoad(map: __esri.WebMap, view: __esri.MapView) {
         this.setState({
             map, view
         });
         view.watch('viewpoint', (viewpoint: __esri.Viewpoint) => {
-            this.props.handleMapViewpoint(this.props.index, viewpoint)
+            this.props.handleMapViewpoint(this.props.index, viewpoint);
+        });
+        this.updateRenderer();
+    }
+
+    private updateRenderer() {
+        const expression = this.state.map.layers.get('items')[1].renderer.valueExpression;
+        let renderer: __esri.Renderer = this.state.map.layers.get('items')[1].renderer;
+        const rendererJSON = renderer.toJSON();
+
+        const newExpression = this.parseArcade(expression);
+        rendererJSON.valueExpression = newExpression;
+        rendererJSON.visualVariables[0].valueExpression = newExpression;
+
+        esriPromise(['esri/renderers/ClassBreaksRenderer']).then(([
+            ClassBreaksRendererConstructor
+        ]) => {
+            const ClassBreaksRenderer: __esri.ClassBreaksRendererConstructor = ClassBreaksRendererConstructor;
+            const newRenderer = ClassBreaksRenderer.fromJSON(rendererJSON);
+            this.state.map.layers.get('items')[1].set('renderer', newRenderer);
         });
     }
+
+    private parseArcade(expression) {
+        return expression.split('\n').map((line) => {
+            const matchingExposedProperty = Object.keys(this.props.map.exposedProperties).reduce((p, c, i) => {
+                if (line.indexOf(`var ${c} =`) !== -1) {
+                    return c;
+                }
+                return p;
+            }, null);
+            if (matchingExposedProperty) {
+                return `var ${matchingExposedProperty} = ${this.props.map.exposedProperties[matchingExposedProperty]}`;
+            }
+            return line;
+        }).join('\n');
+    }
 }
-// id="ec108b241fe24cbab6313c0134e53cec"
