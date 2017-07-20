@@ -33,6 +33,7 @@ export default class Main extends React.Component<IComponentProps, IComponentSta
         this.handleMapClose = this.handleMapClose.bind(this);
         this.handleMapClone = this.handleMapClone.bind(this);
         this.updateWindowContainerSize = this.updateWindowContainerSize.bind(this);
+        this.handleMapViewpoint = this.handleMapViewpoint.bind(this);
     }
 
     public componentDidMount() {
@@ -43,13 +44,14 @@ export default class Main extends React.Component<IComponentProps, IComponentSta
     public render() {
         const Maps = this.state.maps.map((item, i) => (
             <MapWindow
-                map={item}
+                handleMapClone={this.handleMapClone}
+                handleMapClose={this.handleMapClose}
+                handleMapViewpoint={this.handleMapViewpoint}
+                index={i}
                 itemHeight={this.state.itemHeight}
                 itemWidth={this.state.itemWidth}
-                handleMapClose={this.handleMapClose}
-                handleMapClone={this.handleMapClone}
-                index={i}
                 key={item.key}
+                map={item}
             />
         ));
         return (
@@ -132,6 +134,17 @@ export default class Main extends React.Component<IComponentProps, IComponentSta
                     )
         });
         this.updateWindowContainerSize();
+    }
+
+    public handleMapViewpoint(index: number, viewpoint: __esri.Viewpoint) {
+        this.setState({
+            maps: this.state.maps.map((item, i) => {
+                if (i === index) {
+                    return { ...item, viewpoint };
+                }
+                return item;
+            })
+        });
     }
 
     private updateWindowContainerSize() {
