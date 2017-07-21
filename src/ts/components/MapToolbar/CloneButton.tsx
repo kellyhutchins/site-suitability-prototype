@@ -5,7 +5,7 @@ interface ICloneButtonProps {
     index: number;
 };
 
-export default (props) => (
+export default (props: ICloneButtonProps) => (
     <i
         className="map-toolbar-item map-toolbar-button icon-ui-plus"
         onClick={() => { props.handleMapClone(props.index) }}

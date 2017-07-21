@@ -14,7 +14,13 @@ interface IComponentState {
         title: string;
         id: string;
         exposedProperties: {
-            [propName: string]: any;
+            [propName: string]: {
+                value: any,
+                inputType: string;
+                min?: number;
+                max?: number;
+                interval?: number;
+            };
         }
         viewpoint?: __esri.Viewpoint;
     }>;
@@ -34,11 +40,41 @@ export default class Main extends React.Component<IComponentProps, IComponentSta
                     key: Math.random().toString(36).substring(5),
                     title: 'Map 1',
                     exposedProperties: {
-                        wtVac: 10,
-                        wtImpR: 20,
-                        wtYear: 40,
-                        wtLanduse: 30,
-                        wtRFAR: 0
+                        wtVac: {
+                            value: 50,
+                            inputType: 'range',
+                            min: 0,
+                            max: 100,
+                            interval: 1
+                        },
+                        wtImpR: {
+                            value: 20,
+                            inputType: 'range',
+                            min: 0,
+                            max: 100,
+                            interval: 1
+                        },
+                        wtYear: {
+                            value: 10,
+                            inputType: 'range',
+                            min: 0,
+                            max: 100,
+                            interval: 1
+                        },
+                        wtLanduse: {
+                            value: 10,
+                            inputType: 'range',
+                            min: 0,
+                            max: 100,
+                            interval: 1
+                        },
+                        wtRFAR: {
+                            value: 10,
+                            inputType: 'range',
+                            min: 0,
+                            max: 100,
+                            interval: 1
+                        }
                     }
                 }
             ]
@@ -47,6 +83,7 @@ export default class Main extends React.Component<IComponentProps, IComponentSta
         this.handleMapClone = this.handleMapClone.bind(this);
         this.updateWindowContainerSize = this.updateWindowContainerSize.bind(this);
         this.handleMapViewpoint = this.handleMapViewpoint.bind(this);
+        this.handlePropertyChange = this.handlePropertyChange.bind(this);
     }
 
     public componentDidMount() {
@@ -60,6 +97,7 @@ export default class Main extends React.Component<IComponentProps, IComponentSta
                 handleMapClone={this.handleMapClone}
                 handleMapClose={this.handleMapClose}
                 handleMapViewpoint={this.handleMapViewpoint}
+                handlePropertyChange={this.handlePropertyChange}
                 index={i}
                 itemHeight={this.state.itemHeight}
                 itemWidth={this.state.itemWidth}
@@ -113,6 +151,25 @@ export default class Main extends React.Component<IComponentProps, IComponentSta
             maps: this.state.maps.map((item, i) => {
                 if (i === index) {
                     return { ...item, viewpoint };
+                }
+                return item;
+            })
+        });
+    }
+
+    public handlePropertyChange(mapIndex: number, propertyName: string, value: any) {
+        this.setState({
+            maps: this.state.maps.map((item, i) => {
+                if (i === mapIndex) {
+                    const newExposedProperties = {...this.state.maps[mapIndex].exposedProperties};
+                    newExposedProperties[propertyName] = {
+                        ...newExposedProperties[propertyName],
+                        value
+                    };
+                    return {
+                        ...item,
+                        exposedProperties: newExposedProperties
+                    };
                 }
                 return item;
             })

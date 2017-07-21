@@ -7,6 +7,7 @@ interface IComponentProps {
     handleMapClone: (index: number) => void;
     handleMapClose: (index: number) => void;
     handleMapViewpoint: (index: number, viewpoint: __esri.Viewpoint) => void;
+    handlePropertyChange: (index: number, propertyName: string, value: any) => void;
     index: number;
     itemHeight: string;
     itemWidth: string;
@@ -16,7 +17,13 @@ interface IComponentProps {
         title: string;
         id: string;
         exposedProperties: {
-            [propName: string]: any;
+            [propName: string]: {
+                value: any,
+                inputType: string;
+                min?: number;
+                max?: number;
+                interval?: number;
+            };
         }
         viewpoint?: __esri.Viewpoint;
     };
@@ -37,6 +44,7 @@ export default class MapWindow extends React.Component<IComponentProps, ICompone
         this.handleMapLoad = this.handleMapLoad.bind(this);
         this.parseArcade = this.parseArcade.bind(this);
         this.updateRenderer = this.updateRenderer.bind(this);
+        this.handlePropertyChange = this.handlePropertyChange.bind(this);
     }
 
     public render() {
@@ -48,6 +56,8 @@ export default class MapWindow extends React.Component<IComponentProps, ICompone
                 <MapToolbar
                     handleMapClone={this.props.handleMapClone}
                     handleMapClose={this.props.handleMapClose}
+                    handlePropertyChange={this.handlePropertyChange}
+                    updateRenderer={this.updateRenderer}
                     index={this.props.index}
                     map={this.props.map}
                 />
@@ -62,19 +72,13 @@ export default class MapWindow extends React.Component<IComponentProps, ICompone
         );
     }
 
-    private handleMapLoad(map: __esri.WebMap, view: __esri.MapView) {
-        this.setState({
-            map, view
-        });
-        view.watch('viewpoint', (viewpoint: __esri.Viewpoint) => {
-            this.props.handleMapViewpoint(this.props.index, viewpoint);
-        });
-        this.updateRenderer();
+    public handlePropertyChange(propName: string, value: any) {
+        this.props.handlePropertyChange(this.props.index, propName, value);
     }
 
-    private updateRenderer() {
+    public updateRenderer() {
         const expression = this.state.map.layers.get('items')[1].renderer.valueExpression;
-        let renderer: __esri.Renderer = this.state.map.layers.get('items')[1].renderer;
+        const renderer: __esri.Renderer = this.state.map.layers.get('items')[1].renderer;
         const rendererJSON = renderer.toJSON();
 
         const newExpression = this.parseArcade(expression);
@@ -90,6 +94,16 @@ export default class MapWindow extends React.Component<IComponentProps, ICompone
         });
     }
 
+    private handleMapLoad(map: __esri.WebMap, view: __esri.MapView) {
+        this.setState({
+            map, view
+        });
+        view.watch('viewpoint', (viewpoint: __esri.Viewpoint) => {
+            this.props.handleMapViewpoint(this.props.index, viewpoint);
+        });
+        this.updateRenderer();
+    }
+
     private parseArcade(expression) {
         return expression.split('\n').map((line) => {
             const matchingExposedProperty = Object.keys(this.props.map.exposedProperties).reduce((p, c, i) => {
@@ -99,7 +113,7 @@ export default class MapWindow extends React.Component<IComponentProps, ICompone
                 return p;
             }, null);
             if (matchingExposedProperty) {
-                return `var ${matchingExposedProperty} = ${this.props.map.exposedProperties[matchingExposedProperty]}`;
+                return `var ${matchingExposedProperty} = ${this.props.map.exposedProperties[matchingExposedProperty].value}`;
             }
             return line;
         }).join('\n');
