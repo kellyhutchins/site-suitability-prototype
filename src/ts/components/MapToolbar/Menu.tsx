@@ -9,6 +9,7 @@ interface IMenuProps {
         id: string;
         exposedProperties: {
             [propName: string]: {
+                description?: string;
                 value: any,
                 inputType: string;
                 min?: number;
@@ -23,10 +24,16 @@ interface IMenuProps {
 export default (props: IMenuProps) => {
     const options = Object.keys(props.map.exposedProperties).map((propertyName, i) => {
         const propertyValues = props.map.exposedProperties[propertyName];
+        const propertyDescription = propertyValues.description ? (
+            <p className="property-description">
+                {propertyValues.description}
+            </p>
+        ) : null;
         return (
             <div>
                 <label>
                     {propertyName} ({propertyValues.value})
+                    {propertyDescription}
                     <input
                         className="property-input"
                         type={propertyValues.inputType}
@@ -46,9 +53,8 @@ export default (props: IMenuProps) => {
     });
     return (
         <div className="map-menu">
-            <h4><b>Customize model:</b></h4>
             {options}
-            <button className="btn btn-clear" onClick={() => { props.updateRenderer() }}>Apply</button>
+            <button className="btn btn-clear btn-fill apply-button" onClick={() => { props.updateRenderer() }}>Apply</button>
         </div>
     );
 };

@@ -15,6 +15,7 @@ interface IComponentState {
         id: string;
         exposedProperties: {
             [propName: string]: {
+                description?: string;
                 value: any,
                 inputType: string;
                 min?: number;
@@ -41,6 +42,7 @@ export default class Main extends React.Component<IComponentProps, IComponentSta
                     title: 'Map 1',
                     exposedProperties: {
                         wtVac: {
+                            description: `wtVac is a variable in the arcade script.`,
                             value: 50,
                             inputType: 'range',
                             min: 0,
@@ -48,6 +50,7 @@ export default class Main extends React.Component<IComponentProps, IComponentSta
                             interval: 1
                         },
                         wtImpR: {
+                            description: `This is another variable.`,
                             value: 20,
                             inputType: 'range',
                             min: 0,
@@ -69,6 +72,7 @@ export default class Main extends React.Component<IComponentProps, IComponentSta
                             interval: 1
                         },
                         wtRFAR: {
+                            description: `The app's author could set & describe these variables in the config.`,
                             value: 10,
                             inputType: 'range',
                             min: 0,
