@@ -50,7 +50,7 @@ export default class MapToolbar extends React.Component<IComponentProps, ICompon
         }
         return (
             <header className="map-toolbar">
-                <WindowTitle handleMenuToggle={this.handleMenuToggle} title={this.props.map.title} />
+                <WindowTitle handleMenuToggle={this.handleMenuToggle} title={this.props.map.title} menuActive={this.state.menuActive} />
                 <CloseButton handleMapClose={this.props.handleMapClose} index={this.props.index} />
                 <CloneButton handleMapClone={this.props.handleMapClone} index={this.props.index} />
                 {menu}
