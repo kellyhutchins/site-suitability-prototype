@@ -72,7 +72,6 @@ export default class Main extends React.Component<IComponentProps, IComponentSta
                             interval: 1
                         },
                         wtRFAR: {
-                            description: `The app's author could set & describe these variables in the config.`,
                             value: 10,
                             inputType: 'range',
                             min: 0,
