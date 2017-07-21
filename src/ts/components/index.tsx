@@ -11,6 +11,7 @@ interface IComponentState {
     itemWidth: string;
     maps: Array<{
         key: string;
+        liveRendering: boolean;
         title: string;
         id: string;
         exposedProperties: {
@@ -25,6 +26,7 @@ interface IComponentState {
         }
         viewpoint?: __esri.Viewpoint;
     }>;
+    mapOrder: string;
 }
 
 export default class Main extends React.Component<IComponentProps, IComponentState> {
@@ -39,6 +41,7 @@ export default class Main extends React.Component<IComponentProps, IComponentSta
                 {
                     id: 'ec108b241fe24cbab6313c0134e53cec',
                     key: Math.random().toString(36).substring(5),
+                    liveRendering: false,
                     title: 'Map 1',
                     exposedProperties: {
                         wtVac: {
@@ -72,7 +75,6 @@ export default class Main extends React.Component<IComponentProps, IComponentSta
                             interval: 1
                         },
                         wtRFAR: {
-                            description: `The app's author could set & describe these variables in the config.`,
                             value: 10,
                             inputType: 'range',
                             min: 0,
@@ -81,13 +83,16 @@ export default class Main extends React.Component<IComponentProps, IComponentSta
                         }
                     }
                 }
-            ]
+            ],
+            mapOrder: 'row'
         };
         this.handleMapClose = this.handleMapClose.bind(this);
         this.handleMapClone = this.handleMapClone.bind(this);
         this.updateWindowContainerSize = this.updateWindowContainerSize.bind(this);
         this.handleMapViewpoint = this.handleMapViewpoint.bind(this);
         this.handlePropertyChange = this.handlePropertyChange.bind(this);
+        this.handleLiveRenderingChange = this.handleLiveRenderingChange.bind(this);
+        this.handleTitleChange = this.handleTitleChange.bind(this);
     }
 
     public componentDidMount() {
@@ -102,11 +107,15 @@ export default class Main extends React.Component<IComponentProps, IComponentSta
                 handleMapClose={this.handleMapClose}
                 handleMapViewpoint={this.handleMapViewpoint}
                 handlePropertyChange={this.handlePropertyChange}
+                handleLiveRenderingChange={this.handleLiveRenderingChange}
+                handleTitleChange={this.handleTitleChange}
                 index={i}
                 itemHeight={this.state.itemHeight}
                 itemWidth={this.state.itemWidth}
                 key={item.key}
                 map={item}
+                mapOrder={this.state.mapOrder}
+                mapNumber={this.state.maps.length - 1}
             />
         ));
         return (
@@ -180,6 +189,34 @@ export default class Main extends React.Component<IComponentProps, IComponentSta
         });
     }
 
+    public handleLiveRenderingChange(mapIndex: number, value: boolean) {
+        this.setState({
+            maps: this.state.maps.map((item, i) => {
+                if (i === mapIndex) {
+                    return {
+                        ...item,
+                        liveRendering: value
+                    };
+                }
+                return item;
+            })
+        });
+    }
+
+    public handleTitleChange(mapIndex: number, value: string) {
+        this.setState({
+            maps: this.state.maps.map((item, i) => {
+                if (i === mapIndex) {
+                    return {
+                        ...item,
+                        title: value
+                    };
+                }
+                return item;
+            })
+        });
+    }
+
     private updateWindowContainerSize() {
         const widthPx = document.body.clientWidth;
         const heightPx = (document.body.clientHeight - document.getElementById('app-nav').clientHeight);
@@ -188,14 +225,16 @@ export default class Main extends React.Component<IComponentProps, IComponentSta
                 height: `${heightPx}px`,
                 width: `${widthPx}px`,
                 itemHeight: '100%',
-                itemWidth: `${widthPx / this.state.maps.length}px`
+                itemWidth: `${widthPx / this.state.maps.length}px`,
+                mapOrder: 'row'
             });
         } else {
             this.setState({
                 height: `${heightPx}px`,
                 width: `${widthPx}px`,
                 itemHeight: `${heightPx / this.state.maps.length}px`,
-                itemWidth: '100%'
+                itemWidth: '100%',
+                mapOrder: 'column'
             });
         }
     }

@@ -1,6 +1,7 @@
 @import "node_modules/calcite-web/dist/sass/calcite-web";
 @import "./menu";
 @import "./range";
+@import "./tooltips";
 
 #react-container {
     width: 100vw;
@@ -43,6 +44,7 @@
 
 .map-toolbar-item {
     display: inline-block;
+    position: relative;
     cursor: pointer;
     padding: 0px;
     color: $lightest-gray;
@@ -56,6 +58,7 @@
 
 .map-toolbar-button {
     float: right;
+    margin: 0px 0.5em 0px 0px;
 }
 
 .map-container {
@@ -84,4 +87,23 @@ label {
         background-color: $range-track-color;
         border: 1px solid white;
     }
+}
+
+.window-title {
+    margin: 0px;
+}
+
+.window-title-input {
+    display: inline-block;
+    margin: 0px;
+    width: auto;
+    max-width: 50%;
+    height: 1.6em;
+    background-color: black;
+    color: $lighter-gray;
+    border: none;
+}
+
+.edit-title-button {
+    margin: 0px 0px 0px 0.5em;
 }
