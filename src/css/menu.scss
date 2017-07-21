@@ -1,0 +1,19 @@
+.map-menu {
+    position: absolute;
+    width: 375px;
+    max-width: 100%;
+    height: 100%;
+    top: 2em;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 5000;
+    border-right: 1px solid $gray;
+    border-bottom: 1px solid $gray;
+    padding: 1em;
+}
+
+.property-description {
+    font-weight: normal;
+    color: $light-gray;
+    margin: 0px;
+}

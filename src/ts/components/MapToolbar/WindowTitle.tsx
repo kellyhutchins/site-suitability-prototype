@@ -6,5 +6,9 @@ interface IWindowTitleProps {
 };
 
 export default (props: IWindowTitleProps) => (
-    <p className="map-toolbar-item icon-ui-handle-vertical" onClick={props.handleMenuToggle}>{props.title}</p>
+    <button className="btn btn-transparent map-toolbar-item">
+        <b>
+            <p className="icon-ui-handle-vertical" onClick={props.handleMenuToggle}>{props.title}</p>
+        </b>
+    </button>
 );

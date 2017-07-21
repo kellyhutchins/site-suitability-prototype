@@ -6,8 +6,8 @@ interface ICloneButtonProps {
 };
 
 export default (props: ICloneButtonProps) => (
-    <i
-        className="map-toolbar-item map-toolbar-button icon-ui-plus"
+    <button
+        className="btn btn-transparent map-toolbar-item map-toolbar-button icon-ui-plus"
         onClick={() => { props.handleMapClone(props.index) }}
     />
 );

@@ -6,8 +6,8 @@ interface ICloseButtonProps {
 };
 
 export default (props: ICloseButtonProps) => (
-    <i
-        className="map-toolbar-item map-toolbar-button icon-ui-close"
+    <button
+        className="btn btn-transparent map-toolbar-item map-toolbar-button icon-ui-close"
         onClick={() => { props.handleMapClose(props.index) }}
     />
 );
