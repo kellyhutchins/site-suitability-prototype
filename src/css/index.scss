@@ -92,3 +92,18 @@ label {
 .window-title {
     margin: 0px;
 }
+
+.window-title-input {
+    display: inline-block;
+    margin: 0px;
+    width: auto;
+    max-width: 50%;
+    height: 1.6em;
+    background-color: black;
+    color: $lighter-gray;
+    border: none;
+}
+
+.edit-title-button {
+    margin: 0px 0px 0px 0.5em;
+}

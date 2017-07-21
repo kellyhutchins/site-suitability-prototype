@@ -10,6 +10,7 @@ interface IComponentProps {
     handleMapViewpoint: (index: number, viewpoint: __esri.Viewpoint) => void;
     handlePropertyChange: (index: number, propertyName: string, value: any) => void;
     handleLiveRenderingChange: (index: number, value: boolean) => void;
+    handleTitleChange: (index: number, value: string) => void;
     index: number;
     itemHeight: string;
     itemWidth: string;
@@ -72,6 +73,7 @@ export default class MapWindow extends React.Component<IComponentProps, ICompone
                     handleMapClose={this.props.handleMapClose}
                     handlePropertyChange={this.handlePropertyChange}
                     handleLiveRenderingChange={this.props.handleLiveRenderingChange}
+                    handleTitleChange={this.props.handleTitleChange}
                     updateRenderer={this.updateRenderer}
                     index={this.props.index}
                     map={this.props.map}

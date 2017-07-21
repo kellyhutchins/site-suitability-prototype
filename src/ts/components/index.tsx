@@ -92,6 +92,7 @@ export default class Main extends React.Component<IComponentProps, IComponentSta
         this.handleMapViewpoint = this.handleMapViewpoint.bind(this);
         this.handlePropertyChange = this.handlePropertyChange.bind(this);
         this.handleLiveRenderingChange = this.handleLiveRenderingChange.bind(this);
+        this.handleTitleChange = this.handleTitleChange.bind(this);
     }
 
     public componentDidMount() {
@@ -107,6 +108,7 @@ export default class Main extends React.Component<IComponentProps, IComponentSta
                 handleMapViewpoint={this.handleMapViewpoint}
                 handlePropertyChange={this.handlePropertyChange}
                 handleLiveRenderingChange={this.handleLiveRenderingChange}
+                handleTitleChange={this.handleTitleChange}
                 index={i}
                 itemHeight={this.state.itemHeight}
                 itemWidth={this.state.itemWidth}
@@ -194,6 +196,20 @@ export default class Main extends React.Component<IComponentProps, IComponentSta
                     return {
                         ...item,
                         liveRendering: value
+                    };
+                }
+                return item;
+            })
+        });
+    }
+
+    public handleTitleChange(mapIndex: number, value: string) {
+        this.setState({
+            maps: this.state.maps.map((item, i) => {
+                if (i === mapIndex) {
+                    return {
+                        ...item,
+                        title: value
                     };
                 }
                 return item;
