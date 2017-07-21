@@ -28,6 +28,7 @@ export default (props: IMenuProps) => {
                 <label>
                     {propertyName} ({propertyValues.value})
                     <input
+                        className="property-input"
                         type={propertyValues.inputType}
                         min={propertyValues.min}
                         max={propertyValues.max}
@@ -45,7 +46,7 @@ export default (props: IMenuProps) => {
     });
     return (
         <div className="map-menu">
-            <h4>Customize site suitability model:</h4>
+            <h4><b>Customize model:</b></h4>
             {options}
             <button className="btn btn-clear" onClick={() => { props.updateRenderer() }}>Apply</button>
         </div>
