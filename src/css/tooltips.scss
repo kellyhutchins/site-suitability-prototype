@@ -1,0 +1,118 @@
+.toolbar-tooltip-left:hover:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    z-index: 1000001;
+    width: 0;
+    height: 0;
+    color: rgba(0,0,0,0.75);
+    pointer-events: none;
+    border: 5px solid transparent;
+    top: 50%;
+    bottom: 50%;
+    left: -9px;
+    right: 50%;
+    margin-top: -5px;
+    margin-right: -5px;
+    border-left-color: rgba(0,0,0,0.75);
+    border-bottom: 5px solid transparent;
+}
+
+.toolbar-tooltip-left:hover:after {
+    content: attr(aria-label);
+    font-size: 0.875rem;
+    display: inline-block;
+    position: absolute;
+    z-index: 1000000;
+    padding: 0.3875rem 0.775rem;
+    color: white;
+    font-size: 0.875rem;
+    text-align: center;
+    pointer-events: none;
+    background: rgba(0,0,0,0.75);
+    top: auto;
+    right: 100%;
+    margin-right: 9px;
+    bottom: 50%;
+    line-height: 1.5;
+    transform: translateY(50%);
+    border-radius: 4px;
+}
+
+.toolbar-tooltip-right:hover:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    z-index: 1000001;
+    width: 0;
+    height: 0;
+    color: rgba(0,0,0,0.75);
+    pointer-events: none;
+    border: 5px solid transparent;
+    top: 50%;
+    bottom: 50%;
+    right: -5px;
+    left: 100%;
+    margin-top: -5px;
+    margin-left: -1px;
+    border-right-color: rgba(0,0,0,0.75);
+    border-bottom: 5px solid transparent;
+}
+
+.toolbar-tooltip-right:hover:after {
+    content: attr(aria-label);
+    font-size: 0.875rem;
+    display: inline-block;
+    position: absolute;
+    z-index: 1000000;
+    padding: 0.3875rem 0.775rem;
+    color: white;
+    font-size: 0.875rem;
+    text-align: center;
+    pointer-events: none;
+    background: rgba(0,0,0,0.75);
+    top: auto;
+    left: 100%;
+    margin-left: 9px;
+    bottom: 50%;
+    line-height: 1.5;
+    transform: translateY(50%);
+    border-radius: 4px;
+}
+
+.toolbar-tooltip:hover:before {
+    display: inline-block;
+    top: auto;
+    right: 50%;
+    bottom: -9px;
+    margin-right: -5px;
+    border: 5px solid transparent;
+    border-bottom-color: rgba(0,0,0,0.75);
+    content: "";
+    position: absolute;
+    z-index: 1000001;
+    width: 0;
+    height: 0;
+    color: rgba(0,0,0,0.75);
+    pointer-events: none;
+}
+
+.toolbar-tooltip:hover:after {
+    content: attr(aria-label);
+    font-size: 0.875rem;
+    display: inline-block;
+    position: absolute;
+    z-index: 1000000;
+    padding: 0.3875rem 0.775rem;
+    color: white;
+    font-size: 0.875rem;
+    text-align: center;
+    pointer-events: none;
+    background: rgba(0,0,0,0.75);
+    top: 100%;
+    right: 50%;
+    margin-top: 9px;
+    line-height: 1.5;
+    transform: translateX(50%);
+    border-radius: 4px;
+}

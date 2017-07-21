@@ -25,6 +25,7 @@ interface IComponentState {
         }
         viewpoint?: __esri.Viewpoint;
     }>;
+    mapOrder: string;
 }
 
 export default class Main extends React.Component<IComponentProps, IComponentState> {
@@ -80,7 +81,8 @@ export default class Main extends React.Component<IComponentProps, IComponentSta
                         }
                     }
                 }
-            ]
+            ],
+            mapOrder: 'row'
         };
         this.handleMapClose = this.handleMapClose.bind(this);
         this.handleMapClone = this.handleMapClone.bind(this);
@@ -106,6 +108,8 @@ export default class Main extends React.Component<IComponentProps, IComponentSta
                 itemWidth={this.state.itemWidth}
                 key={item.key}
                 map={item}
+                mapOrder={this.state.mapOrder}
+                mapNumber={this.state.maps.length - 1}
             />
         ));
         return (
@@ -187,14 +191,16 @@ export default class Main extends React.Component<IComponentProps, IComponentSta
                 height: `${heightPx}px`,
                 width: `${widthPx}px`,
                 itemHeight: '100%',
-                itemWidth: `${widthPx / this.state.maps.length}px`
+                itemWidth: `${widthPx / this.state.maps.length}px`,
+                mapOrder: 'row'
             });
         } else {
             this.setState({
                 height: `${heightPx}px`,
                 width: `${widthPx}px`,
                 itemHeight: `${heightPx / this.state.maps.length}px`,
-                itemWidth: '100%'
+                itemWidth: '100%',
+                mapOrder: 'column'
             });
         }
     }

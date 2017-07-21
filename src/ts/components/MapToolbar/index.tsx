@@ -25,6 +25,8 @@ interface IComponentProps {
         }
         viewpoint?: __esri.Viewpoint;
     };
+    mapOrder: string;
+    mapNumber: number;
 }
 
 interface IComponentState {
@@ -50,9 +52,25 @@ export default class MapToolbar extends React.Component<IComponentProps, ICompon
         }
         return (
             <header className="map-toolbar">
-                <WindowTitle handleMenuToggle={this.handleMenuToggle} title={this.props.map.title} menuActive={this.state.menuActive} />
-                <CloseButton handleMapClose={this.props.handleMapClose} index={this.props.index} />
-                <CloneButton handleMapClone={this.props.handleMapClone} index={this.props.index} />
+                <WindowTitle
+                    handleMenuToggle={this.handleMenuToggle}
+                    title={this.props.map.title}
+                    menuActive={this.state.menuActive}index={this.props.index}
+                    mapOrder={this.props.mapOrder}
+                    mapNumber={this.props.mapNumber}
+                />
+                <CloseButton
+                    handleMapClose={this.props.handleMapClose}
+                    index={this.props.index}
+                    mapOrder={this.props.mapOrder}
+                    mapNumber={this.props.mapNumber}
+                />
+                <CloneButton
+                    handleMapClone={this.props.handleMapClone}
+                    index={this.props.index}
+                    mapOrder={this.props.mapOrder}
+                    mapNumber={this.props.mapNumber}
+                />
                 {menu}
             </header>
         );

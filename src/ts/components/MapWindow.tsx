@@ -28,6 +28,8 @@ interface IComponentProps {
         }
         viewpoint?: __esri.Viewpoint;
     };
+    mapOrder: string;
+    mapNumber: number;
 }
 
 interface IComponentState {
@@ -70,6 +72,8 @@ export default class MapWindow extends React.Component<IComponentProps, ICompone
                     updateRenderer={this.updateRenderer}
                     index={this.props.index}
                     map={this.props.map}
+                    mapOrder={this.props.mapOrder}
+                    mapNumber={this.props.mapNumber}
                 />
                 <WebMap
                     className="map-container"
