@@ -2,11 +2,14 @@ import * as React from 'react';
 
 interface IComponentProps {
     handlePropertyChange: (propertyName: string, value: any) => void;
+    handleLiveRenderingChange: (index: number, value: boolean) => void;
     updateRenderer: () => void;
+    index: number;
     map: {
         key: string;
         title: string;
         id: string;
+        liveRendering: boolean;
         exposedProperties: {
             [propName: string]: {
                 description?: string;
@@ -21,17 +24,9 @@ interface IComponentProps {
     };
 }
 
-interface IComponentState {
-    liveRenderingEnabled: boolean;
-}
-
-export default class Menu extends React.Component<IComponentProps, IComponentState> {
+export default class Menu extends React.Component<IComponentProps> {
     constructor(props) {
         super(props);
-        this.state = {
-            liveRenderingEnabled: false
-        };
-
         this.toggleLiveRendering = this.toggleLiveRendering.bind(this);
     }
 
@@ -58,7 +53,7 @@ export default class Menu extends React.Component<IComponentProps, IComponentSta
                                 (e) => {
                                     e.preventDefault();
                                     this.props.handlePropertyChange(propertyName, e.target.value);
-                                    if (this.state.liveRenderingEnabled) {
+                                    if (this.props.map.liveRendering) {
                                         this.props.updateRenderer();
                                     }
                                 }
@@ -68,7 +63,7 @@ export default class Menu extends React.Component<IComponentProps, IComponentSta
                 </div>
             );
         });
-        const applyButton = this.state.liveRenderingEnabled ?
+        const applyButton = this.props.map.liveRendering ?
             null :
             (
                 <button
@@ -89,7 +84,7 @@ export default class Menu extends React.Component<IComponentProps, IComponentSta
                     </span>
                     <input
                         onChange={this.toggleLiveRendering}
-                        checked={this.state.liveRenderingEnabled}
+                        checked={this.props.map.liveRendering}
                         type="checkbox"
                     />
                 </label>
@@ -100,8 +95,6 @@ export default class Menu extends React.Component<IComponentProps, IComponentSta
 
     private toggleLiveRendering(e) {
         e.preventDefault();
-        this.setState({
-            liveRenderingEnabled: !this.state.liveRenderingEnabled
-        });
+        this.props.handleLiveRenderingChange(this.props.index, !this.props.map.liveRendering);
     }
 };

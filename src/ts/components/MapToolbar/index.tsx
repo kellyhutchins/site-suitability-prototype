@@ -8,12 +8,14 @@ interface IComponentProps {
     handleMapClone: (index: number) => void;
     handleMapClose: (index: number) => void;
     handlePropertyChange: (propertyName: string, value: any) => void;
+    handleLiveRenderingChange: (index: number, value: boolean) => void;
     updateRenderer: () => void;
     index: number;
     map: {
         key: string;
         title: string;
         id: string;
+        liveRendering: boolean;
         exposedProperties: {
             [propName: string]: {
                 value: any,
@@ -46,7 +48,9 @@ export default class MapToolbar extends React.Component<IComponentProps, ICompon
         if (this.state.menuActive) {
             menu = <Menu
                 handlePropertyChange={this.props.handlePropertyChange}
+                handleLiveRenderingChange={this.props.handleLiveRenderingChange}
                 updateRenderer={this.props.updateRenderer}
+                index={this.props.index}
                 map={this.props.map}
             />;
         }

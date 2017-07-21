@@ -11,6 +11,7 @@ interface IComponentState {
     itemWidth: string;
     maps: Array<{
         key: string;
+        liveRendering: boolean;
         title: string;
         id: string;
         exposedProperties: {
@@ -40,6 +41,7 @@ export default class Main extends React.Component<IComponentProps, IComponentSta
                 {
                     id: 'ec108b241fe24cbab6313c0134e53cec',
                     key: Math.random().toString(36).substring(5),
+                    liveRendering: false,
                     title: 'Map 1',
                     exposedProperties: {
                         wtVac: {
@@ -89,6 +91,7 @@ export default class Main extends React.Component<IComponentProps, IComponentSta
         this.updateWindowContainerSize = this.updateWindowContainerSize.bind(this);
         this.handleMapViewpoint = this.handleMapViewpoint.bind(this);
         this.handlePropertyChange = this.handlePropertyChange.bind(this);
+        this.handleLiveRenderingChange = this.handleLiveRenderingChange.bind(this);
     }
 
     public componentDidMount() {
@@ -103,6 +106,7 @@ export default class Main extends React.Component<IComponentProps, IComponentSta
                 handleMapClose={this.handleMapClose}
                 handleMapViewpoint={this.handleMapViewpoint}
                 handlePropertyChange={this.handlePropertyChange}
+                handleLiveRenderingChange={this.handleLiveRenderingChange}
                 index={i}
                 itemHeight={this.state.itemHeight}
                 itemWidth={this.state.itemWidth}
@@ -176,6 +180,20 @@ export default class Main extends React.Component<IComponentProps, IComponentSta
                     return {
                         ...item,
                         exposedProperties: newExposedProperties
+                    };
+                }
+                return item;
+            })
+        });
+    }
+
+    public handleLiveRenderingChange(mapIndex: number, value: boolean) {
+        this.setState({
+            maps: this.state.maps.map((item, i) => {
+                if (i === mapIndex) {
+                    return {
+                        ...item,
+                        liveRendering: value
                     };
                 }
                 return item;

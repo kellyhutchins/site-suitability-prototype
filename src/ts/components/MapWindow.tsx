@@ -9,6 +9,7 @@ interface IComponentProps {
     handleMapClose: (index: number) => void;
     handleMapViewpoint: (index: number, viewpoint: __esri.Viewpoint) => void;
     handlePropertyChange: (index: number, propertyName: string, value: any) => void;
+    handleLiveRenderingChange: (index: number, value: boolean) => void;
     index: number;
     itemHeight: string;
     itemWidth: string;
@@ -17,6 +18,7 @@ interface IComponentProps {
         key: string;
         title: string;
         id: string;
+        liveRendering: boolean;
         exposedProperties: {
             [propName: string]: {
                 value: any,
@@ -69,6 +71,7 @@ export default class MapWindow extends React.Component<IComponentProps, ICompone
                     handleMapClone={this.props.handleMapClone}
                     handleMapClose={this.props.handleMapClose}
                     handlePropertyChange={this.handlePropertyChange}
+                    handleLiveRenderingChange={this.props.handleLiveRenderingChange}
                     updateRenderer={this.updateRenderer}
                     index={this.props.index}
                     map={this.props.map}
