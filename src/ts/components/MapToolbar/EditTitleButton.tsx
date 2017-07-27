@@ -35,7 +35,7 @@ export default (props: IEditTitleButtonProps) => {
                 btn-transparent
                 map-toolbar-item
                 edit-title-button
-                ${props.index !== 0 && props.mapOrder !== 'column' ? 'toolbar-tooltip' : 'toolbar-tooltip-right'}
+                ${props.index !== 0 && props.mapOrder !== 'column' ? 'toolbar-tooltip' : 'toolbar-tooltip tt-right'}
             `}
             aria-label={props.changingTitle ? 'Accept changes' : 'Edit title'}
             onClick={() => { props.toggleChangingTitle() }}

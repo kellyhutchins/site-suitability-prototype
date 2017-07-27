@@ -14,7 +14,7 @@ export default (props: ICloseButtonProps) => (
             btn-transparent
             map-toolbar-item
             map-toolbar-button
-            ${props.index !== props.mapNumber && props.mapNumber !== 0 && props.mapOrder !== 'column' ? 'toolbar-tooltip' : 'toolbar-tooltip-left'}
+            ${props.index !== props.mapNumber && props.mapNumber !== 0 && props.mapOrder !== 'column' ? 'toolbar-tooltip' : 'toolbar-tooltip tt-left'}
         `}
         aria-label="Close map"
         onClick={() => { props.handleMapClose(props.index) }}

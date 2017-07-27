@@ -40,7 +40,7 @@ export default (props: IWindowTitleProps) => {
         <button
             className={`
                 btn btn-transparent map-toolbar-item
-                ${props.index !== 0 && props.mapOrder !== 'column' ? 'toolbar-tooltip' : 'toolbar-tooltip-right'}
+                ${props.index !== 0 && props.mapOrder !== 'column' ? 'toolbar-tooltip' : 'toolbar-tooltip tt-right'}
             `}
             aria-label={props.menuActive ? 'Close menu' : 'Customize Arcade model'}
         >
