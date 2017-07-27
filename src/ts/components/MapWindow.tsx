@@ -3,6 +3,7 @@ import esriPromise from 'esri-promise';
 import { WebMap } from 'react-arcgis';
 import MapToolbar from './MapToolbar';
 import { Promise } from 'es6-promise';
+import Loader from './loadComponent';
 
 interface IComponentProps {
     handleMapClone: (index: number) => void;
@@ -83,6 +84,7 @@ export default class MapWindow extends React.Component<IComponentProps, ICompone
                 <WebMap
                     className="map-container"
                     id={this.props.map.id}
+                    loadComponent={<Loader />}
                     mapProperties={{ basemap: 'osm' as __esri.BasemapProperties }}
                     viewProperties={ this.props.map.viewpoint ? { viewpoint: this.props.map.viewpoint } : {}}
                     onLoad={this.handleMapLoad}
