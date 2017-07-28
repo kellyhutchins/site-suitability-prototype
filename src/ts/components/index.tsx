@@ -2,7 +2,10 @@ import * as React from 'react';
 import MapWindow from './MapWindow';
 import Header from './Header';
 
-interface IComponentProps {};
+interface IComponentProps {
+    boilerplate: any;
+    i18n: any;
+};
 
 interface IComponentState {
     height: string;

@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 
 module.exports = {
     entry: {
@@ -13,7 +14,6 @@ module.exports = {
         path: __dirname + '/dist',
         filename: '[name].js'
     },
-
     resolve: {
         extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js', '.jsx', '.scss'],
         alias: {
@@ -41,7 +41,11 @@ module.exports = {
             inject: false,
             template: 'src/index.html'
         }),
-        new ExtractTextPlugin('bundle.css')
+        new ExtractTextPlugin('bundle.css'),
+        new CopyWebpackPlugin([
+            { from: 'src/config', to: 'config' },
+            { from: 'src/application-base-js', to: 'application-base-js' }
+        ])
     ],
 
     devServer: {

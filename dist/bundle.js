@@ -1,8 +1,1573 @@
-!function(e){function t(n){if(r[n])return r[n].exports;var o=r[n]={i:n,l:!1,exports:{}};return e[n].call(o.exports,o,o.exports,t),o.l=!0,o.exports}var r={};t.m=e,t.c=r,t.d=function(e,r,n){t.o(e,r)||Object.defineProperty(e,r,{configurable:!1,enumerable:!0,get:n})},t.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(r,"a",r),r},t.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},t.p="",t(t.s=5)}([function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),function(e){function n(){return null}function o(e){var t=e.nodeName,r=e.attributes;e.attributes={},t.defaultProps&&_(e.attributes,t.defaultProps),r&&_(e.attributes,r)}function i(e,t){var r,n,o;if(t){for(o in t)if(r=H.test(o))break;if(r){n=e.attributes={};for(o in t)t.hasOwnProperty(o)&&(n[H.test(o)?o.replace(/([A-Z0-9])/,"-$1").toLowerCase():o]=t[o])}}}function a(e,t,r){var n=t&&t._preactCompatRendered&&t._preactCompatRendered.base;n&&n.parentNode!==t&&(n=null),n||(n=t.children[0]);for(var o=t.childNodes.length;o--;)t.childNodes[o]!==n&&t.removeChild(t.childNodes[o]);var i=Object(D.e)(e,t,n);return t&&(t._preactCompatRendered=i&&(i._component||{base:i})),"function"==typeof r&&r(),i&&i._component||i}function s(e,t,r,n){var o=Object(D.c)(Z,{context:e.context},t),i=a(o,r);return n&&n(i),i._component||i.base}function p(e){var t=e._preactCompatRendered&&e._preactCompatRendered.base;return!(!t||t.parentNode!==e)&&(Object(D.e)(Object(D.c)(n),e,t),!0)}function l(e){return h.bind(null,e)}function c(e,t){for(var r=t||0;r<e.length;r++){var n=e[r];Array.isArray(n)?c(n):n&&"object"==typeof n&&!v(n)&&(n.props&&n.type||n.attributes&&n.nodeName||n.children)&&(e[r]=h(n.type||n.nodeName,n.props||n.attributes,n.children))}}function u(e){return"function"==typeof e&&!(e.prototype&&e.prototype.render)}function d(e){return M({displayName:e.displayName||e.name,render:function(){return e(this.props,this.context)}})}function f(e){var t=e[I];return t?!0===t?e:t:(t=d(e),Object.defineProperty(t,I,{configurable:!0,value:!0}),t.displayName=e.displayName,t.propTypes=e.propTypes,t.defaultProps=e.defaultProps,Object.defineProperty(e,I,{configurable:!0,value:t}),t)}function h(){for(var e=[],t=arguments.length;t--;)e[t]=arguments[t];return c(e,2),m(D.c.apply(void 0,e))}function m(e){e.preactCompatNormalized=!0,b(e),u(e.nodeName)&&(e.nodeName=f(e.nodeName));var t=e.attributes.ref,r=t&&typeof t;return!Q||"string"!==r&&"number"!==r||(e.attributes.ref=g(t,Q)),w(e),e}function y(e,t){for(var r=[],n=arguments.length-2;n-- >0;)r[n]=arguments[n+2];if(!v(e))return e;var o=e.attributes||e.props,i=Object(D.c)(e.nodeName||e.type,o,e.children||o&&o.children),a=[i,t];return r&&r.length?a.push(r):t&&t.children&&a.push(t.children),m(D.b.apply(void 0,a))}function v(e){return e&&(e instanceof J||e.$$typeof===B)}function g(e,t){return t._refProxies[e]||(t._refProxies[e]=function(r){t&&t.refs&&(t.refs[e]=r,null===r&&(delete t._refProxies[e],t=null))})}function w(e){var t=e.nodeName,r=e.attributes;if(r&&"string"==typeof t){var n={};for(var o in r)n[o.toLowerCase()]=o;if(n.ondoubleclick&&(r.ondblclick=r[n.ondoubleclick],delete r[n.ondoubleclick]),n.onchange&&("textarea"===t||"input"===t.toLowerCase()&&!/^fil|che|rad/i.test(r.type))){var i=n.oninput||"oninput";r[i]||(r[i]=L([r[i],r[n.onchange]]),delete r[n.onchange])}}}function b(e){var t=e.attributes;if(t){var r=t.className||t.class;r&&(t.className=r)}}function _(e,t){for(var r in t)t.hasOwnProperty(r)&&(e[r]=t[r]);return e}function P(e,t){for(var r in e)if(!(r in t))return!0;for(var n in t)if(e[n]!==t[n])return!0;return!1}function C(e){return e&&e.base||e}function O(){}function M(e){function t(e,t){S(this),U.call(this,e,t,q),x.call(this,e,t)}return e=_({constructor:t},e),e.mixins&&W(e,E(e.mixins)),e.statics&&_(t,e.statics),e.propTypes&&(t.propTypes=e.propTypes),e.defaultProps&&(t.defaultProps=e.defaultProps),e.getDefaultProps&&(t.defaultProps=e.getDefaultProps()),O.prototype=U.prototype,t.prototype=_(new O,e),t.displayName=e.displayName||"Component",t}function E(e){for(var t={},r=0;r<e.length;r++){var n=e[r];for(var o in n)n.hasOwnProperty(o)&&"function"==typeof n[o]&&(t[o]||(t[o]=[])).push(n[o])}return t}function W(e,t){for(var r in t)t.hasOwnProperty(r)&&(e[r]=L(t[r].concat(e[r]||X),"getDefaultProps"===r||"getInitialState"===r||"getChildContext"===r))}function S(e){for(var t in e){var r=e[t];"function"!=typeof r||r.__bound||z.hasOwnProperty(t)||((e[t]=r.bind(e)).__bound=!0)}}function T(e,t,r){if("string"==typeof t&&(t=e.constructor.prototype[t]),"function"==typeof t)return t.apply(e,r)}function L(e,t){return function(){for(var r,n=arguments,o=this,i=0;i<e.length;i++){var a=T(o,e[i],n);if(t&&null!=a){r||(r={});for(var s in a)a.hasOwnProperty(s)&&(r[s]=a[s])}else void 0!==a&&(r=a)}return r}}function x(e,t){F.call(this,e,t),this.componentWillReceiveProps=L([F,this.componentWillReceiveProps||"componentWillReceiveProps"]),this.render=L([F,j,this.render||"render",N])}function F(e,t){if(e){var r=e.children;if(r&&Array.isArray(r)&&1===r.length&&(e.children=r[0],e.children&&"object"==typeof e.children&&(e.children.length=1,e.children[0]=e.children)),$){var n="function"==typeof this?this:this.constructor,o=this.propTypes||n.propTypes,i=this.displayName||n.name;o&&R.a.checkPropTypes(o,e,"prop",i)}}}function j(e){Q=this}function N(){Q===this&&(Q=null)}function U(e,t,r){D.a.call(this,e,t),this.state=this.getInitialState?this.getInitialState():{},this.refs={},this._refProxies={},r!==q&&x.call(this,e,t)}function k(e,t){U.call(this,e,t)}r.d(t,"version",function(){return V}),r.d(t,"DOM",function(){return te}),r.d(t,"Children",function(){return ee}),r.d(t,"render",function(){return a}),r.d(t,"createClass",function(){return M}),r.d(t,"createFactory",function(){return l}),r.d(t,"createElement",function(){return h}),r.d(t,"cloneElement",function(){return y}),r.d(t,"isValidElement",function(){return v}),r.d(t,"findDOMNode",function(){return C}),r.d(t,"unmountComponentAtNode",function(){return p}),r.d(t,"Component",function(){return U}),r.d(t,"PureComponent",function(){return k}),r.d(t,"unstable_renderSubtreeIntoContainer",function(){return s});var A=r(7),R=r.n(A),D=r(12);r.d(t,"PropTypes",function(){return R.a});var V="15.1.0",G="a abbr address area article aside audio b base bdi bdo big blockquote body br button canvas caption cite code col colgroup data datalist dd del details dfn dialog div dl dt em embed fieldset figcaption figure footer form h1 h2 h3 h4 h5 h6 head header hgroup hr html i iframe img input ins kbd keygen label legend li link main map mark menu menuitem meta meter nav noscript object ol optgroup option output p param picture pre progress q rp rt ruby s samp script section select small source span strong style sub summary sup table tbody td textarea tfoot th thead time title tr track u ul var video wbr circle clipPath defs ellipse g image line linearGradient mask path pattern polygon polyline radialGradient rect stop svg text tspan".split(" "),B="undefined"!=typeof Symbol&&Symbol.for&&Symbol.for("react.element")||60103,I="undefined"!=typeof Symbol?Symbol.for("__preactCompatWrapper"):"__preactCompatWrapper",z={constructor:1,render:1,shouldComponentUpdate:1,componentWillReceiveProps:1,componentWillUpdate:1,componentDidUpdate:1,componentWillMount:1,componentDidMount:1,componentWillUnmount:1,componentDidUnmount:1},H=/^(?:accent|alignment|arabic|baseline|cap|clip|color|fill|flood|font|glyph|horiz|marker|overline|paint|stop|strikethrough|stroke|text|underline|unicode|units|v|vert|word|writing|x)[A-Z]/,q={},$=void 0===e||!e.env||!1,J=Object(D.c)("a",null).constructor;J.prototype.$$typeof=B,J.prototype.preactCompatUpgraded=!1,J.prototype.preactCompatNormalized=!1,Object.defineProperty(J.prototype,"type",{get:function(){return this.nodeName},set:function(e){this.nodeName=e},configurable:!0}),Object.defineProperty(J.prototype,"props",{get:function(){return this.attributes},set:function(e){this.attributes=e},configurable:!0});var Y=D.d.event;D.d.event=function(e){return Y&&(e=Y(e)),e.persist=Object,e.nativeEvent=e,e};var K=D.d.vnode;D.d.vnode=function(e){if(!e.preactCompatUpgraded){e.preactCompatUpgraded=!0;var t=e.nodeName,r=e.attributes=_({},e.attributes);"function"==typeof t?(!0===t[I]||t.prototype&&"isReactComponent"in t.prototype)&&(e.children&&""===String(e.children)&&(e.children=void 0),e.children&&(r.children=e.children),e.preactCompatNormalized||m(e),o(e)):(e.children&&""===String(e.children)&&(e.children=void 0),e.children&&(r.children=e.children),r.defaultValue&&(r.value||0===r.value||(r.value=r.defaultValue),delete r.defaultValue),i(e,r))}K&&K(e)};var Z=function(){};Z.prototype.getChildContext=function(){return this.props.context},Z.prototype.render=function(e){return e.children[0]};for(var Q,X=[],ee={map:function(e,t,r){return null==e?null:(e=ee.toArray(e),r&&r!==e&&(t=t.bind(r)),e.map(t))},forEach:function(e,t,r){if(null==e)return null;e=ee.toArray(e),r&&r!==e&&(t=t.bind(r)),e.forEach(t)},count:function(e){return e&&e.length||0},only:function(e){if(e=ee.toArray(e),1!==e.length)throw new Error("Children.only() expects only one child.");return e[0]},toArray:function(e){return null==e?[]:Array.isArray&&Array.isArray(e)?e:X.concat(e)}},te={},re=G.length;re--;)te[G[re]]=l(G[re]);_(U.prototype=new D.a,{constructor:U,isReactComponent:{},replaceState:function(e,t){var r=this;this.setState(e,t);for(var n in r.state)n in e||delete r.state[n]},getDOMNode:function(){return this.base},isMounted:function(){return!!this.base}}),O.prototype=U.prototype,k.prototype=new O,k.prototype.isPureReactComponent=!0,k.prototype.shouldComponentUpdate=function(e,t){return P(this.props,e)||P(this.state,t)};var ne={version:V,DOM:te,PropTypes:R.a,Children:ee,render:a,createClass:M,createFactory:l,createElement:h,cloneElement:y,isValidElement:v,findDOMNode:C,unmountComponentAtNode:p,Component:U,PureComponent:k,unstable_renderSubtreeIntoContainer:s};t.default=ne}.call(t,r(3))},function(e,t,r){"use strict";function n(){return void 0!==window.require}function o(e){return new s.Promise(function(t,r){window.require.on("error",r),window.require(e,function(){for(var e=[],r=0;r<arguments.length;r++)e[r]=arguments[r];t(e)})})}function i(e,t){return new s.Promise(function(r,o){n()&&o("The ArcGIS API for JavaScript has already been loaded!"),e||(e="https://js.arcgis.com/4.4/"),t&&(window.dojoConfig=t);var i=document.createElement("script");i.type="text/javascript",i.src=e,i.onload=function(){r()},i.onerror=o,document.body.appendChild(i)})}function a(e){return n()?o(e):i().then(function(){return o(e)})}Object.defineProperty(t,"__esModule",{value:!0});var s=r(2);t.esriBootstrap=i,t.esriPromise=a,t.default=a},function(e,t,r){(function(t,n){/*!
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(1);
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var esri_promise_1 = __webpack_require__(2);
+__webpack_require__(7);
+var package_path = window.location.pathname.substring(0, window.location.pathname.lastIndexOf("/"));
+var dojoConfig = {
+    async: true,
+    locale: 'en-us',
+    packages: [
+        {
+            name: "application-base-js",
+            location: package_path + "/application-base-js",
+            main: "bundle"
+        },
+        {
+            name: "config",
+            location: package_path + "/config"
+        }
+    ]
+};
+if (location.search.match(/locale=([\w-]+)/)) {
+    dojoConfig.locale = RegExp.$1;
+}
+esri_promise_1.esriBootstrap('https://js.arcgis.com/4.4/', dojoConfig).then(function () {
+    esri_promise_1.default([
+        'dojo/text!config/appConfig.json',
+        'dojo/text!config/baseConfig.json',
+        'dojo/i18n!config/nls/resources',
+        'application-base-js/ApplicationBase.js'
+    ]).then(function (_a) {
+        var appConfig = _a[0], baseConfig = _a[1], i18n = _a[2], ApplicationBase = _a[3];
+        console.log(appConfig, baseConfig, i18n, ApplicationBase);
+        // ReactDOM.render(
+        //     <Main baseConfig={baseConfig} i18n={i18n} />,
+        //     document.getElementById('react-container')
+        // );
+    });
+});
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var es6_promise_1 = __webpack_require__(3);
+function isLoaded() {
+    return typeof window['require'] !== 'undefined';
+}
+function dojoPromise(modules) {
+    return new es6_promise_1.Promise(function (resolve, reject) {
+        // If something goes wrong loading the esri/dojo scripts, reject with the error.
+        window['require'].on('error', reject);
+        window['require'](modules, function () {
+            var args = [];
+            for (var _i = 0; _i < arguments.length; _i++) {
+                args[_i] = arguments[_i];
+            }
+            // Resolve with the parameters from dojo require as an array.
+            resolve(args);
+        });
+    });
+}
+function esriBootstrap(url, dojoConfig) {
+    return new es6_promise_1.Promise(function (resolve, reject) {
+        if (isLoaded()) {
+            // If the API is already loaded, reject with an error message.
+            reject('The ArcGIS API for JavaScript has already been loaded!');
+        }
+        if (!url) {
+            url = 'https://js.arcgis.com/4.4/';
+        }
+        if (dojoConfig) {
+            window['dojoConfig'] = dojoConfig;
+        }
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = url;
+        script.onload = function () {
+            // Resolve after the script is loaded.
+            resolve();
+        };
+        // Reject if something goes wrong loading the script.
+        script.onerror = reject;
+        document.body.appendChild(script);
+    });
+}
+exports.esriBootstrap = esriBootstrap;
+function esriPromise(modules) {
+    if (!isLoaded()) {
+        return esriBootstrap().then(function () { return dojoPromise(modules); });
+    }
+    else {
+        return dojoPromise(modules);
+    }
+}
+exports.esriPromise = esriPromise;
+exports.default = esriPromise;
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(process, global) {var require;/*!
  * @overview es6-promise - a tiny implementation of Promises/A+.
  * @copyright Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors (Conversion to ES6 API by Jake Archibald)
  * @license   Licensed under MIT license
  *            See https://raw.githubusercontent.com/stefanpenner/es6-promise/master/LICENSE
  * @version   4.1.1
  */
-!function(t,r){e.exports=r()}(0,function(){"use strict";function e(e){var t=typeof e;return null!==e&&("object"===t||"function"===t)}function o(e){return"function"==typeof e}function i(e){H=e}function a(e){q=e}function s(){return void 0!==z?function(){z(l)}:p()}function p(){var e=setTimeout;return function(){return e(l,1)}}function l(){for(var e=0;e<I;e+=2){(0,Q[e])(Q[e+1]),Q[e]=void 0,Q[e+1]=void 0}I=0}function c(e,t){var r=arguments,n=this,o=new this.constructor(d);void 0===o[ee]&&x(o);var i=n._state;return i?function(){var e=r[i-1];q(function(){return S(i,o,e,n._result)})}():O(n,o,e,t),o}function u(e){var t=this;if(e&&"object"==typeof e&&e.constructor===t)return e;var r=new t(d);return b(r,e),r}function d(){}function f(){return new TypeError("You cannot resolve a promise with itself")}function h(){return new TypeError("A promises callback cannot return that same promise.")}function m(e){try{return e.then}catch(e){return oe.error=e,oe}}function y(e,t,r,n){try{e.call(t,r,n)}catch(e){return e}}function v(e,t,r){q(function(e){var n=!1,o=y(r,t,function(r){n||(n=!0,t!==r?b(e,r):P(e,r))},function(t){n||(n=!0,C(e,t))},"Settle: "+(e._label||" unknown promise"));!n&&o&&(n=!0,C(e,o))},e)}function g(e,t){t._state===re?P(e,t._result):t._state===ne?C(e,t._result):O(t,void 0,function(t){return b(e,t)},function(t){return C(e,t)})}function w(e,t,r){t.constructor===e.constructor&&r===c&&t.constructor.resolve===u?g(e,t):r===oe?(C(e,oe.error),oe.error=null):void 0===r?P(e,t):o(r)?v(e,t,r):P(e,t)}function b(t,r){t===r?C(t,f()):e(r)?w(t,r,m(r)):P(t,r)}function _(e){e._onerror&&e._onerror(e._result),M(e)}function P(e,t){e._state===te&&(e._result=t,e._state=re,0!==e._subscribers.length&&q(M,e))}function C(e,t){e._state===te&&(e._state=ne,e._result=t,q(_,e))}function O(e,t,r,n){var o=e._subscribers,i=o.length;e._onerror=null,o[i]=t,o[i+re]=r,o[i+ne]=n,0===i&&e._state&&q(M,e)}function M(e){var t=e._subscribers,r=e._state;if(0!==t.length){for(var n=void 0,o=void 0,i=e._result,a=0;a<t.length;a+=3)n=t[a],o=t[a+r],n?S(r,n,o,i):o(i);e._subscribers.length=0}}function E(){this.error=null}function W(e,t){try{return e(t)}catch(e){return ie.error=e,ie}}function S(e,t,r,n){var i=o(r),a=void 0,s=void 0,p=void 0,l=void 0;if(i){if(a=W(r,n),a===ie?(l=!0,s=a.error,a.error=null):p=!0,t===a)return void C(t,h())}else a=n,p=!0;t._state!==te||(i&&p?b(t,a):l?C(t,s):e===re?P(t,a):e===ne&&C(t,a))}function T(e,t){try{t(function(t){b(e,t)},function(t){C(e,t)})}catch(t){C(e,t)}}function L(){return ae++}function x(e){e[ee]=ae++,e._state=void 0,e._result=void 0,e._subscribers=[]}function F(e,t){this._instanceConstructor=e,this.promise=new e(d),this.promise[ee]||x(this.promise),B(t)?(this.length=t.length,this._remaining=t.length,this._result=new Array(this.length),0===this.length?P(this.promise,this._result):(this.length=this.length||0,this._enumerate(t),0===this._remaining&&P(this.promise,this._result))):C(this.promise,j())}function j(){return new Error("Array Methods must be provided an Array")}function N(e){return new F(this,e).promise}function U(e){var t=this;return new t(B(e)?function(r,n){for(var o=e.length,i=0;i<o;i++)t.resolve(e[i]).then(r,n)}:function(e,t){return t(new TypeError("You must pass an array to race."))})}function k(e){var t=this,r=new t(d);return C(r,e),r}function A(){throw new TypeError("You must pass a resolver function as the first argument to the promise constructor")}function R(){throw new TypeError("Failed to construct 'Promise': Please use the 'new' operator, this object constructor cannot be called as a function.")}function D(e){this[ee]=L(),this._result=this._state=void 0,this._subscribers=[],d!==e&&("function"!=typeof e&&A(),this instanceof D?T(this,e):R())}function V(){var e=void 0;if(void 0!==n)e=n;else if("undefined"!=typeof self)e=self;else try{e=Function("return this")()}catch(e){throw new Error("polyfill failed because global object is unavailable in this environment")}var t=e.Promise;if(t){var r=null;try{r=Object.prototype.toString.call(t.resolve())}catch(e){}if("[object Promise]"===r&&!t.cast)return}e.Promise=D}var G=void 0;G=Array.isArray?Array.isArray:function(e){return"[object Array]"===Object.prototype.toString.call(e)};var B=G,I=0,z=void 0,H=void 0,q=function(e,t){Q[I]=e,Q[I+1]=t,2===(I+=2)&&(H?H(l):X())},$="undefined"!=typeof window?window:void 0,J=$||{},Y=J.MutationObserver||J.WebKitMutationObserver,K="undefined"==typeof self&&void 0!==t&&"[object process]"==={}.toString.call(t),Z="undefined"!=typeof Uint8ClampedArray&&"undefined"!=typeof importScripts&&"undefined"!=typeof MessageChannel,Q=new Array(1e3),X=void 0;X=K?function(){return function(){return t.nextTick(l)}}():Y?function(){var e=0,t=new Y(l),r=document.createTextNode("");return t.observe(r,{characterData:!0}),function(){r.data=e=++e%2}}():Z?function(){var e=new MessageChannel;return e.port1.onmessage=l,function(){return e.port2.postMessage(0)}}():void 0===$?function(){try{var e=r(16);return z=e.runOnLoop||e.runOnContext,s()}catch(e){return p()}}():p();var ee=Math.random().toString(36).substring(16),te=void 0,re=1,ne=2,oe=new E,ie=new E,ae=0;return F.prototype._enumerate=function(e){for(var t=0;this._state===te&&t<e.length;t++)this._eachEntry(e[t],t)},F.prototype._eachEntry=function(e,t){var r=this._instanceConstructor,n=r.resolve;if(n===u){var o=m(e);if(o===c&&e._state!==te)this._settledAt(e._state,t,e._result);else if("function"!=typeof o)this._remaining--,this._result[t]=e;else if(r===D){var i=new r(d);w(i,e,o),this._willSettleAt(i,t)}else this._willSettleAt(new r(function(t){return t(e)}),t)}else this._willSettleAt(n(e),t)},F.prototype._settledAt=function(e,t,r){var n=this.promise;n._state===te&&(this._remaining--,e===ne?C(n,r):this._result[t]=r),0===this._remaining&&P(n,this._result)},F.prototype._willSettleAt=function(e,t){var r=this;O(e,void 0,function(e){return r._settledAt(re,t,e)},function(e){return r._settledAt(ne,t,e)})},D.all=N,D.race=U,D.resolve=u,D.reject=k,D._setScheduler=i,D._setAsap=a,D._asap=q,D.prototype={constructor:D,then:c,catch:function(e){return this.then(null,e)}},D.polyfill=V,D.Promise=D,D})}).call(t,r(3),r(15))},function(e,t){function r(){throw new Error("setTimeout has not been defined")}function n(){throw new Error("clearTimeout has not been defined")}function o(e){if(c===setTimeout)return setTimeout(e,0);if((c===r||!c)&&setTimeout)return c=setTimeout,setTimeout(e,0);try{return c(e,0)}catch(t){try{return c.call(null,e,0)}catch(t){return c.call(this,e,0)}}}function i(e){if(u===clearTimeout)return clearTimeout(e);if((u===n||!u)&&clearTimeout)return u=clearTimeout,clearTimeout(e);try{return u(e)}catch(t){try{return u.call(null,e)}catch(t){return u.call(this,e)}}}function a(){m&&f&&(m=!1,f.length?h=f.concat(h):y=-1,h.length&&s())}function s(){if(!m){var e=o(a);m=!0;for(var t=h.length;t;){for(f=h,h=[];++y<t;)f&&f[y].run();y=-1,t=h.length}f=null,m=!1,i(e)}}function p(e,t){this.fun=e,this.array=t}function l(){}var c,u,d=e.exports={};!function(){try{c="function"==typeof setTimeout?setTimeout:r}catch(e){c=r}try{u="function"==typeof clearTimeout?clearTimeout:n}catch(e){u=n}}();var f,h=[],m=!1,y=-1;d.nextTick=function(e){var t=new Array(arguments.length-1);if(arguments.length>1)for(var r=1;r<arguments.length;r++)t[r-1]=arguments[r];h.push(new p(e,t)),1!==h.length||m||o(s)},p.prototype.run=function(){this.fun.apply(null,this.array)},d.title="browser",d.browser=!0,d.env={},d.argv=[],d.version="",d.versions={},d.on=l,d.addListener=l,d.once=l,d.off=l,d.removeListener=l,d.removeAllListeners=l,d.emit=l,d.prependListener=l,d.prependOnceListener=l,d.listeners=function(e){return[]},d.binding=function(e){throw new Error("process.binding is not supported")},d.cwd=function(){return"/"},d.chdir=function(e){throw new Error("process.chdir is not supported")},d.umask=function(){return 0}},function(e,t,r){"use strict";var n=this&&this.__assign||Object.assign||function(e){for(var t,r=1,n=arguments.length;r<n;r++){t=arguments[r];for(var o in t)Object.prototype.hasOwnProperty.call(t,o)&&(e[o]=t[o])}return e};Object.defineProperty(t,"__esModule",{value:!0});var o=r(2),i=r(0),a=r(19),s={onClick:"click",onDoubleClick:"double-click",onDrag:"drag",onHold:"hold",onKeyDown:"key-down",onKeyUp:"key-up",onLayerViewCreate:"layerview-create",onLayerViewDestroy:"layerview-destroy",onMouseWheel:"mouse-wheel",onPointerDown:"pointer-down",onPointerMove:"pointer-move",onPointerUp:"pointer-up",onResize:"resize"};t.MapBase=function(e){return i.createElement(a.ArcView,n({},e,{loadMap:function(t,r){var i=t[0],a=t[1];return new o.Promise(function(t,o){try{var p=new i(e.mapProperties),l=n({map:p,container:r},e.viewProperties),c=new a(l),u=c;Object.keys(s).forEach(function(t){e[t]&&u.on(s[t],e[t])}),c.then(function(){t({map:p,view:c})},function(e){o(e)})}catch(e){o(e)}})}}))},t.WebBase=function(e){return i.createElement(a.ArcView,n({},e,{loadMap:function(t,r){var i=t[0],a=t[1],p=t[2];return new o.Promise(function(t,o){try{var l=new i({portalItem:{id:e.id}});l.load().then(function(){return l.basemap.load()}).then(function(){var e=l.allLayers,t=e.map(function(e){return e.load()});return p(t.toArray())}).then(function(o){var i=new a(n({container:r,map:l},e.viewProperties));Object.keys(s).forEach(function(t){e[t]&&i.on(s[t],e[t])}),t({map:l,view:i})}).otherwise(function(e){o(e)})}catch(e){o(e)}})}}))}},function(e,t,r){e.exports=r(6)},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n=r(0),o=r(0),i=r(13);r(39),o.render(n.createElement(i.default,null),document.getElementById("react-container"))},function(e,t,r){e.exports=r(8)()},function(e,t,r){"use strict";var n=r(9),o=r(10),i=r(11);e.exports=function(){function e(e,t,r,n,a,s){s!==i&&o(!1,"Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types")}function t(){return e}e.isRequired=e;var r={array:e,bool:e,func:e,number:e,object:e,string:e,symbol:e,any:e,arrayOf:t,element:e,instanceOf:t,node:e,objectOf:t,oneOf:t,oneOfType:t,shape:t};return r.checkPropTypes=n,r.PropTypes=r,r}},function(e,t,r){"use strict";function n(e){return function(){return e}}var o=function(){};o.thatReturns=n,o.thatReturnsFalse=n(!1),o.thatReturnsTrue=n(!0),o.thatReturnsNull=n(null),o.thatReturnsThis=function(){return this},o.thatReturnsArgument=function(e){return e},e.exports=o},function(e,t,r){"use strict";function n(e,t,r,n,i,a,s,p){if(o(t),!e){var l;if(void 0===t)l=new Error("Minified exception occurred; use the non-minified dev environment for the full error message and additional helpful warnings.");else{var c=[r,n,i,a,s,p],u=0;l=new Error(t.replace(/%s/g,function(){return c[u++]})),l.name="Invariant Violation"}throw l.framesToPop=1,l}}var o=function(e){};e.exports=n},function(e,t,r){"use strict";e.exports="SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED"},function(e,t,r){"use strict";function n(){}function o(e,t){var r,o,i,a,s=U;for(a=arguments.length;a-- >2;)N.push(arguments[a]);for(t&&null!=t.children&&(N.length||N.push(t.children),delete t.children);N.length;)if((o=N.pop())&&void 0!==o.pop)for(a=o.length;a--;)N.push(o[a]);else"boolean"==typeof o&&(o=null),(i="function"!=typeof e)&&(null==o?o="":"number"==typeof o?o=String(o):"string"!=typeof o&&(i=!1)),i&&r?s[s.length-1]+=o:s===U?s=[o]:s.push(o),r=i;var p=new n;return p.nodeName=e,p.children=s,p.attributes=null==t?void 0:t,p.key=null==t?void 0:t.key,void 0!==j.vnode&&j.vnode(p),p}function i(e,t){for(var r in t)e[r]=t[r];return e}function a(e,t){return o(e.nodeName,i(i({},e.attributes),t),arguments.length>2?[].slice.call(arguments,2):e.children)}function s(e){!e._dirty&&(e._dirty=!0)&&1==R.push(e)&&(j.debounceRendering||k)(p)}function p(){var e,t=R;for(R=[];e=t.pop();)e._dirty&&S(e)}function l(e,t,r){return"string"==typeof t||"number"==typeof t?void 0!==e.splitText:"string"==typeof t.nodeName?!e._componentConstructor&&c(e,t.nodeName):r||e._componentConstructor===t.nodeName}function c(e,t){return e.normalizedNodeName===t||e.nodeName.toLowerCase()===t.toLowerCase()}function u(e){var t=i({},e.attributes);t.children=e.children;var r=e.nodeName.defaultProps;if(void 0!==r)for(var n in r)void 0===t[n]&&(t[n]=r[n]);return t}function d(e,t){var r=t?document.createElementNS("http://www.w3.org/2000/svg",e):document.createElement(e);return r.normalizedNodeName=e,r}function f(e){var t=e.parentNode;t&&t.removeChild(e)}function h(e,t,r,n,o){if("className"===t&&(t="class"),"key"===t);else if("ref"===t)r&&r(null),n&&n(e);else if("class"!==t||o)if("style"===t){if(n&&"string"!=typeof n&&"string"!=typeof r||(e.style.cssText=n||""),n&&"object"==typeof n){if("string"!=typeof r)for(var i in r)i in n||(e.style[i]="");for(var i in n)e.style[i]="number"==typeof n[i]&&!1===A.test(i)?n[i]+"px":n[i]}}else if("dangerouslySetInnerHTML"===t)n&&(e.innerHTML=n.__html||"");else if("o"==t[0]&&"n"==t[1]){var a=t!==(t=t.replace(/Capture$/,""));t=t.toLowerCase().substring(2),n?r||e.addEventListener(t,y,a):e.removeEventListener(t,y,a),(e._listeners||(e._listeners={}))[t]=n}else if("list"!==t&&"type"!==t&&!o&&t in e)m(e,t,null==n?"":n),null!=n&&!1!==n||e.removeAttribute(t);else{var s=o&&t!==(t=t.replace(/^xlink\:?/,""));null==n||!1===n?s?e.removeAttributeNS("http://www.w3.org/1999/xlink",t.toLowerCase()):e.removeAttribute(t):"function"!=typeof n&&(s?e.setAttributeNS("http://www.w3.org/1999/xlink",t.toLowerCase(),n):e.setAttribute(t,n))}else e.className=n||""}function m(e,t,r){try{e[t]=r}catch(e){}}function y(e){return this._listeners[e.type](j.event&&j.event(e)||e)}function v(){for(var e;e=D.pop();)j.afterMount&&j.afterMount(e),e.componentDidMount&&e.componentDidMount()}function g(e,t,r,n,o,i){V++||(G=null!=o&&void 0!==o.ownerSVGElement,B=null!=e&&!("__preactattr_"in e));var a=w(e,t,r,n,i);return o&&a.parentNode!==o&&o.appendChild(a),--V||(B=!1,i||v()),a}function w(e,t,r,n,o){var i=e,a=G;if(null!=t&&"boolean"!=typeof t||(t=""),"string"==typeof t||"number"==typeof t)return e&&void 0!==e.splitText&&e.parentNode&&(!e._component||o)?e.nodeValue!=t&&(e.nodeValue=t):(i=document.createTextNode(t),e&&(e.parentNode&&e.parentNode.replaceChild(i,e),_(e,!0))),i.__preactattr_=!0,i;var s=t.nodeName;if("function"==typeof s)return T(e,t,r,n);if(G="svg"===s||"foreignObject"!==s&&G,s=String(s),(!e||!c(e,s))&&(i=d(s,G),e)){for(;e.firstChild;)i.appendChild(e.firstChild);e.parentNode&&e.parentNode.replaceChild(i,e),_(e,!0)}var p=i.firstChild,l=i.__preactattr_,u=t.children;if(null==l){l=i.__preactattr_={};for(var f=i.attributes,h=f.length;h--;)l[f[h].name]=f[h].value}return!B&&u&&1===u.length&&"string"==typeof u[0]&&null!=p&&void 0!==p.splitText&&null==p.nextSibling?p.nodeValue!=u[0]&&(p.nodeValue=u[0]):(u&&u.length||null!=p)&&b(i,u,r,n,B||null!=l.dangerouslySetInnerHTML),C(i,t.attributes,l),G=a,i}function b(e,t,r,n,o){var i,a,s,p,c,u=e.childNodes,d=[],h={},m=0,y=0,v=u.length,g=0,b=t?t.length:0;if(0!==v)for(var P=0;P<v;P++){var C=u[P],O=C.__preactattr_,M=b&&O?C._component?C._component.__key:O.key:null;null!=M?(m++,h[M]=C):(O||(void 0!==C.splitText?!o||C.nodeValue.trim():o))&&(d[g++]=C)}if(0!==b)for(var P=0;P<b;P++){p=t[P],c=null;var M=p.key;if(null!=M)m&&void 0!==h[M]&&(c=h[M],h[M]=void 0,m--);else if(!c&&y<g)for(i=y;i<g;i++)if(void 0!==d[i]&&l(a=d[i],p,o)){c=a,d[i]=void 0,i===g-1&&g--,i===y&&y++;break}c=w(c,p,r,n),s=u[P],c&&c!==e&&c!==s&&(null==s?e.appendChild(c):c===s.nextSibling?f(s):e.insertBefore(c,s))}if(m)for(var P in h)void 0!==h[P]&&_(h[P],!1);for(;y<=g;)void 0!==(c=d[g--])&&_(c,!1)}function _(e,t){var r=e._component;r?L(r):(null!=e.__preactattr_&&e.__preactattr_.ref&&e.__preactattr_.ref(null),!1!==t&&null!=e.__preactattr_||f(e),P(e))}function P(e){for(e=e.lastChild;e;){var t=e.previousSibling;_(e,!0),e=t}}function C(e,t,r){var n;for(n in r)t&&null!=t[n]||null==r[n]||h(e,n,r[n],r[n]=void 0,G);for(n in t)"children"===n||"innerHTML"===n||n in r&&t[n]===("value"===n||"checked"===n?e[n]:r[n])||h(e,n,r[n],r[n]=t[n],G)}function O(e){var t=e.constructor.name;(I[t]||(I[t]=[])).push(e)}function M(e,t,r){var n,o=I[e.name];if(e.prototype&&e.prototype.render?(n=new e(t,r),x.call(n,t,r)):(n=new x(t,r),n.constructor=e,n.render=E),o)for(var i=o.length;i--;)if(o[i].constructor===e){n.nextBase=o[i].nextBase,o.splice(i,1);break}return n}function E(e,t,r){return this.constructor(e,r)}function W(e,t,r,n,o){e._disable||(e._disable=!0,(e.__ref=t.ref)&&delete t.ref,(e.__key=t.key)&&delete t.key,!e.base||o?e.componentWillMount&&e.componentWillMount():e.componentWillReceiveProps&&e.componentWillReceiveProps(t,n),n&&n!==e.context&&(e.prevContext||(e.prevContext=e.context),e.context=n),e.prevProps||(e.prevProps=e.props),e.props=t,e._disable=!1,0!==r&&(1!==r&&!1===j.syncComponentUpdates&&e.base?s(e):S(e,1,o)),e.__ref&&e.__ref(e))}function S(e,t,r,n){if(!e._disable){var o,a,s,p=e.props,l=e.state,c=e.context,d=e.prevProps||p,f=e.prevState||l,h=e.prevContext||c,m=e.base,y=e.nextBase,w=m||y,b=e._component,P=!1;if(m&&(e.props=d,e.state=f,e.context=h,2!==t&&e.shouldComponentUpdate&&!1===e.shouldComponentUpdate(p,l,c)?P=!0:e.componentWillUpdate&&e.componentWillUpdate(p,l,c),e.props=p,e.state=l,e.context=c),e.prevProps=e.prevState=e.prevContext=e.nextBase=null,e._dirty=!1,!P){o=e.render(p,l,c),e.getChildContext&&(c=i(i({},c),e.getChildContext()));var C,O,E=o&&o.nodeName;if("function"==typeof E){var T=u(o);a=b,a&&a.constructor===E&&T.key==a.__key?W(a,T,1,c,!1):(C=a,e._component=a=M(E,T,c),a.nextBase=a.nextBase||y,a._parentComponent=e,W(a,T,0,c,!1),S(a,1,r,!0)),O=a.base}else s=w,C=b,C&&(s=e._component=null),(w||1===t)&&(s&&(s._component=null),O=g(s,o,c,r||!m,w&&w.parentNode,!0));if(w&&O!==w&&a!==b){var x=w.parentNode;x&&O!==x&&(x.replaceChild(O,w),C||(w._component=null,_(w,!1)))}if(C&&L(C),e.base=O,O&&!n){for(var F=e,N=e;N=N._parentComponent;)(F=N).base=O;O._component=F,O._componentConstructor=F.constructor}}if(!m||r?D.unshift(e):P||(e.componentDidUpdate&&e.componentDidUpdate(d,f,h),j.afterUpdate&&j.afterUpdate(e)),null!=e._renderCallbacks)for(;e._renderCallbacks.length;)e._renderCallbacks.pop().call(e);V||n||v()}}function T(e,t,r,n){for(var o=e&&e._component,i=o,a=e,s=o&&e._componentConstructor===t.nodeName,p=s,l=u(t);o&&!p&&(o=o._parentComponent);)p=o.constructor===t.nodeName;return o&&p&&(!n||o._component)?(W(o,l,3,r,n),e=o.base):(i&&!s&&(L(i),e=a=null),o=M(t.nodeName,l,r),e&&!o.nextBase&&(o.nextBase=e,a=null),W(o,l,1,r,n),e=o.base,a&&e!==a&&(a._component=null,_(a,!1))),e}function L(e){j.beforeUnmount&&j.beforeUnmount(e);var t=e.base;e._disable=!0,e.componentWillUnmount&&e.componentWillUnmount(),e.base=null;var r=e._component;r?L(r):t&&(t.__preactattr_&&t.__preactattr_.ref&&t.__preactattr_.ref(null),e.nextBase=t,f(t),O(e),P(t)),e.__ref&&e.__ref(null)}function x(e,t){this._dirty=!0,this.context=t,this.props=e,this.state=this.state||{}}function F(e,t,r){return g(r,e,{},!1,t,!1)}r.d(t,"c",function(){return o}),r.d(t,"b",function(){return a}),r.d(t,"a",function(){return x}),r.d(t,"e",function(){return F}),r.d(t,"d",function(){return j});var j={},N=[],U=[],k="function"==typeof Promise?Promise.resolve().then.bind(Promise.resolve()):setTimeout,A=/acit|ex(?:s|g|n|p|$)|rph|ows|mnc|ntw|ine[ch]|zoo|^ord/i,R=[],D=[],V=0,G=!1,B=!1,I={};i(x.prototype,{setState:function(e,t){var r=this.state;this.prevState||(this.prevState=i({},r)),i(r,"function"==typeof e?e(r,this.props):e),t&&(this._renderCallbacks=this._renderCallbacks||[]).push(t),s(this)},forceUpdate:function(e){e&&(this._renderCallbacks=this._renderCallbacks||[]).push(e),S(this,2)},render:function(){}})},function(e,t,r){"use strict";var n=this&&this.__extends||function(){var e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var r in t)t.hasOwnProperty(r)&&(e[r]=t[r])};return function(t,r){function n(){this.constructor=t}e(t,r),t.prototype=null===r?Object.create(r):(n.prototype=r.prototype,new n)}}(),o=this&&this.__assign||Object.assign||function(e){for(var t,r=1,n=arguments.length;r<n;r++){t=arguments[r];for(var o in t)Object.prototype.hasOwnProperty.call(t,o)&&(e[o]=t[o])}return e};Object.defineProperty(t,"__esModule",{value:!0});var i=r(0),a=r(14),s=r(38),p=function(e){function t(t){var r=e.call(this,t)||this;return r.state={height:"100%",width:"100%",itemHeight:"100%",itemWidth:"100%",maps:[{id:"ec108b241fe24cbab6313c0134e53cec",key:Math.random().toString(36).substring(5),liveRendering:!1,title:"Map 1",exposedProperties:{wtVac:{description:"wtVac is a variable in the arcade script.",value:50,inputType:"range",min:0,max:100,interval:1},wtImpR:{description:"This is another variable.",value:20,inputType:"range",min:0,max:100,interval:1},wtYear:{value:10,inputType:"range",min:0,max:100,interval:1},wtLanduse:{value:10,inputType:"range",min:0,max:100,interval:1},wtRFAR:{value:10,inputType:"range",min:0,max:100,interval:1}}}],mapOrder:"row"},r.handleMapClose=r.handleMapClose.bind(r),r.handleMapClone=r.handleMapClone.bind(r),r.updateWindowContainerSize=r.updateWindowContainerSize.bind(r),r.handleMapViewpoint=r.handleMapViewpoint.bind(r),r.handlePropertyChange=r.handlePropertyChange.bind(r),r.handleLiveRenderingChange=r.handleLiveRenderingChange.bind(r),r.handleTitleChange=r.handleTitleChange.bind(r),r}return n(t,e),t.prototype.componentDidMount=function(){window.addEventListener("resize",this.updateWindowContainerSize),this.updateWindowContainerSize()},t.prototype.render=function(){var e=this,t=this.state.maps.map(function(t,r){return i.createElement(a.default,{handleMapClone:e.handleMapClone,handleMapClose:e.handleMapClose,handleMapViewpoint:e.handleMapViewpoint,handlePropertyChange:e.handlePropertyChange,handleLiveRenderingChange:e.handleLiveRenderingChange,handleTitleChange:e.handleTitleChange,index:r,itemHeight:e.state.itemHeight,itemWidth:e.state.itemWidth,key:t.key,map:t,mapOrder:e.state.mapOrder,mapNumber:e.state.maps.length-1})});return i.createElement("div",{className:"app-container"},i.createElement(s.default,null),i.createElement("div",{className:"window-container",style:{width:this.state.width,height:this.state.height}},t))},t.prototype.handleMapClose=function(e){var t=this.state.maps.slice();t.splice(e,1),this.setState({maps:t}),this.updateWindowContainerSize()},t.prototype.handleMapClone=function(e){var t=o({},this.state.maps[e],{key:Math.random().toString(36).substring(5),title:this.state.maps[e].title+" (clone)"});this.setState({maps:this.state.maps.slice(0,e+1).concat([t]).concat(e===this.state.maps.length-1?[]:this.state.maps.slice(e-(this.state.maps.length-1)))}),this.updateWindowContainerSize()},t.prototype.handleMapViewpoint=function(e,t){this.setState({maps:this.state.maps.map(function(r,n){return n===e?o({},r,{viewpoint:t}):r})})},t.prototype.handlePropertyChange=function(e,t,r){var n=this;this.setState({maps:this.state.maps.map(function(i,a){if(a===e){var s=o({},n.state.maps[e].exposedProperties);return s[t]=o({},s[t],{value:r}),o({},i,{exposedProperties:s})}return i})})},t.prototype.handleLiveRenderingChange=function(e,t){this.setState({maps:this.state.maps.map(function(r,n){return n===e?o({},r,{liveRendering:t}):r})})},t.prototype.handleTitleChange=function(e,t){this.setState({maps:this.state.maps.map(function(r,n){return n===e?o({},r,{title:t}):r})})},t.prototype.updateWindowContainerSize=function(){var e=document.body.clientWidth,t=document.body.clientHeight-document.getElementById("app-nav").clientHeight;e>t?this.setState({height:t+"px",width:e+"px",itemHeight:"100%",itemWidth:e/this.state.maps.length+"px",mapOrder:"row"}):this.setState({height:t+"px",width:e+"px",itemHeight:t/this.state.maps.length+"px",itemWidth:"100%",mapOrder:"column"})},t}(i.Component);t.default=p},function(e,t,r){"use strict";var n=this&&this.__extends||function(){var e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var r in t)t.hasOwnProperty(r)&&(e[r]=t[r])};return function(t,r){function n(){this.constructor=t}e(t,r),t.prototype=null===r?Object.create(r):(n.prototype=r.prototype,new n)}}(),o=this&&this.__assign||Object.assign||function(e){for(var t,r=1,n=arguments.length;r<n;r++){t=arguments[r];for(var o in t)Object.prototype.hasOwnProperty.call(t,o)&&(e[o]=t[o])}return e};Object.defineProperty(t,"__esModule",{value:!0});var i=r(0),a=r(1),s=r(17),p=r(32),l=r(2),c=function(e){function t(t){var r=e.call(this,t)||this;return r.state={map:null,view:null,instances:null},r.handleMapLoad=r.handleMapLoad.bind(r),r.parseArcade=r.parseArcade.bind(r),r.updateRenderer=r.updateRenderer.bind(r),r.handlePropertyChange=r.handlePropertyChange.bind(r),r}return n(t,e),t.prototype.render=function(){return i.createElement("div",{className:"map-window",style:{width:this.props.itemWidth,height:this.props.itemHeight}},i.createElement(p.default,{handleMapClone:this.props.handleMapClone,handleMapClose:this.props.handleMapClose,handlePropertyChange:this.handlePropertyChange,handleLiveRenderingChange:this.props.handleLiveRenderingChange,handleTitleChange:this.props.handleTitleChange,updateRenderer:this.updateRenderer,index:this.props.index,map:this.props.map,mapOrder:this.props.mapOrder,mapNumber:this.props.mapNumber}),i.createElement(s.WebMap,{className:"map-container",id:this.props.map.id,mapProperties:{basemap:"osm"},viewProperties:this.props.map.viewpoint?{viewpoint:this.props.map.viewpoint}:{},onLoad:this.handleMapLoad}))},t.prototype.handlePropertyChange=function(e,t){this.props.handlePropertyChange(this.props.index,e,t)},t.prototype.updateRenderer=function(){var e=this;this.state.instances.forEach(function(t){var r=o({},t.originalJSON);t.expressions.forEach(function(t){t.jsonPath.reduce(function(r,n,o){return o===t.jsonPath.length-1&&(r[n]=e.parseArcade(t.expressionString)),r[n]},r)}),e.state.map.layers.get("items")[1].set("renderer",t.constructor(r))})},t.prototype.handleMapLoad=function(e,t){var r=this;this.setState({map:e,view:t}),t.watch("viewpoint",function(e){r.props.handleMapViewpoint(r.props.index,e)}),this.getInstances().then(function(){r.updateRenderer()})},t.prototype.getInstances=function(){var e=this,t=this.state.map.layers.get("items")[1].renderer.valueExpression,r=this.state.map.layers.get("items")[1].renderer,n=r.toJSON();return a.default(["esri/renderers/ClassBreaksRenderer"]).then(function(r){var o=r[0];return e.setState({instances:[{constructor:o.fromJSON,originalJSON:n,expressions:[{expressionString:t,jsonPath:["valueExpression"]},{expressionString:t,jsonPath:["visualVariables",0,"valueExpression"]}]}]}),l.Promise.resolve()})},t.prototype.parseArcade=function(e){var t=this;return e.split("\n").map(function(e){var r=Object.keys(t.props.map.exposedProperties).reduce(function(t,r,n){return-1!==e.indexOf("var "+r+" =")?r:t},null);return r?"var "+r+" = "+t.props.map.exposedProperties[r].value:e}).join("\n")},t}(i.Component);t.default=c},function(e,t){var r;r=function(){return this}();try{r=r||Function("return this")()||(0,eval)("this")}catch(e){"object"==typeof window&&(r=window)}e.exports=r},function(e,t){},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n=r(18),o=r(21),i=r(22),a=r(24),s=r(25),p=r(27),l=r(29),c=r(31),u={Geometry:i,Graphic:a.default,Layers:s,Map:n.Map,Popup:c.default,Scene:n.Scene,Symbols:p,WebMap:o.WebMap,WebScene:o.WebScene,Widgets:l};t.default=u,t.WebMap=u.WebMap,t.WebScene=u.WebScene,t.Map=u.Map,t.Popup=u.Popup,t.Scene=u.Scene,t.Geometry=u.Geometry,t.Graphic=a.default,t.Layers=s,t.Symbols=p,t.Widgets=l},function(e,t,r){"use strict";var n=this&&this.__assign||Object.assign||function(e){for(var t,r=1,n=arguments.length;r<n;r++){t=arguments[r];for(var o in t)Object.prototype.hasOwnProperty.call(t,o)&&(e[o]=t[o])}return e};Object.defineProperty(t,"__esModule",{value:!0});var o=r(0),i=r(4);t.Map=function(e){return o.createElement(i.MapBase,n({dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:["esri/Map","esri/views/MapView"]},e,{mapProperties:n({basemap:"streets-vector"},e.mapProperties),viewProperties:n({center:[-122.4443,47.2529],zoom:6},e.viewProperties),userDefinedMapProperties:n({},e.mapProperties),userDefinedViewProperties:n({},e.viewProperties)}))},t.Scene=function(e){return o.createElement(i.MapBase,n({dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:["esri/Map","esri/views/SceneView"]},e,{mapProperties:n({basemap:"satellite",ground:"world-elevation"},e.mapProperties),viewProperties:n({center:[-122.4443,47.2529],scale:5e5},e.viewProperties),userDefinedMapProperties:n({},e.mapProperties),userDefinedViewProperties:n({},e.viewProperties)}))}},function(e,t,r){"use strict";var n=this&&this.__extends||function(){var e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var r in t)t.hasOwnProperty(r)&&(e[r]=t[r])};return function(t,r){function n(){this.constructor=t}e(t,r),t.prototype=null===r?Object.create(r):(n.prototype=r.prototype,new n)}}(),o=this&&this.__assign||Object.assign||function(e){for(var t,r=1,n=arguments.length;r<n;r++){t=arguments[r];for(var o in t)Object.prototype.hasOwnProperty.call(t,o)&&(e[o]=t[o])}return e};Object.defineProperty(t,"__esModule",{value:!0});var i=r(1),a=r(0),s=r(20),p=function(e){function t(t){var r=e.call(this,t)||this;return r.state={map:null,mapContainerId:Math.random().toString(36).substring(0,14),mapProperties:r.props.mapProperties,status:"loading",view:null,viewProperties:r.props.viewProperties},r}return n(t,e),t.prototype.render=function(){var e=this,t={left:"50%",marginRight:"-50%",position:"absolute",top:"50%",transform:"translate(-50%, -50%)"},r=this.props.className?this.props.style:o({position:"relative",width:"100%",height:"100%"},this.props.style),n=this.props.className?this.props.className:null,i=this.props.loadComponent?a.createElement(this.props.loadComponent,null):a.createElement("h3",{id:"react-arcgis-loading-text",style:t},"Loading.."),p=this.props.failComponent?a.createElement(this.props.failComponent,null):a.createElement("h3",{id:"react-arcgis-fail-text",style:t},"The ArcGIS API failed to load.");if("loaded"===this.state.status){var l=a.Children.map(this.props.children,function(t){var r=t;return a.cloneElement(r,{map:e.state.map,view:e.state.view})});return a.createElement("div",{id:"base-container",style:r,className:n},a.createElement(s.default,{id:this.state.mapContainerId,style:{width:"100%",height:"100%"}}),l)}return"loading"===this.state.status?a.createElement("div",{id:"base-container",style:r,className:n},a.createElement(s.default,{id:this.state.mapContainerId,style:{width:"100%",height:"100%"}}),i):a.createElement("div",{id:"base-container",style:r,className:n},p)},t.prototype.componentDidMount=function(){var e=this;i.esriPromise(this.props.scriptUri).then(function(t){return e.props.loadMap(t,e.state.mapContainerId).then(function(t){var r=t.map,n=t.view;e.setState({map:r,view:n,status:"loaded"}),e.props.onLoad&&e.props.onLoad(r,n)}).catch(function(e){throw e})}).catch(function(t){e.setState({status:"failed"}),e.props.onFail&&e.props.onFail(t)})},t.prototype.componentWillReceiveProps=function(e){var t=this;"oneWay"===this.props.dataFlow&&(Object.keys(e.userDefinedMapProperties).forEach(function(r){t.state.map.get(r)&&t.state.map.get(r)!==e.userDefinedMapProperties[r]&&t.state.map.set(r,e.userDefinedMapProperties[r])}),Object.keys(e.userDefinedViewProperties).forEach(function(r){if(t.state.view.get(r)&&t.state.view.get(r)!==e.userDefinedViewProperties[r]){var n={};n[r]=e.userDefinedViewProperties[r],t.state.view.set(n)}}))},t}(a.Component);t.ArcView=p},function(e,t,r){"use strict";var n=this&&this.__extends||function(){var e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var r in t)t.hasOwnProperty(r)&&(e[r]=t[r])};return function(t,r){function n(){this.constructor=t}e(t,r),t.prototype=null===r?Object.create(r):(n.prototype=r.prototype,new n)}}();Object.defineProperty(t,"__esModule",{value:!0});var o=r(0),i=function(e){function t(){return null!==e&&e.apply(this,arguments)||this}return n(t,e),t.prototype.render=function(){return o.createElement("div",{id:this.props.id,style:this.props.style})},t.prototype.shouldComponentUpdate=function(){return!1},t}(o.Component);t.default=i},function(e,t,r){"use strict";var n=this&&this.__assign||Object.assign||function(e){for(var t,r=1,n=arguments.length;r<n;r++){t=arguments[r];for(var o in t)Object.prototype.hasOwnProperty.call(t,o)&&(e[o]=t[o])}return e};Object.defineProperty(t,"__esModule",{value:!0});var o=r(0),i=r(4);t.WebMap=function(e){return o.createElement(i.WebBase,n({dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:["esri/WebMap","esri/views/MapView","dojo/promise/all"]},e,{viewProperties:e.viewProperties,mapProperties:e.mapProperties,userDefinedMapProperties:n({},e.mapProperties),userDefinedViewProperties:n({},e.viewProperties)}))},t.WebScene=function(e){return o.createElement(i.WebBase,n({dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:["esri/WebScene","esri/views/SceneView","dojo/promise/all"]},e,{viewProperties:e.viewProperties,mapProperties:e.mapProperties,userDefinedMapProperties:n({},e.mapProperties),userDefinedViewProperties:n({},e.viewProperties)}))}},function(e,t,r){"use strict";var n=this&&this.__assign||Object.assign||function(e){for(var t,r=1,n=arguments.length;r<n;r++){t=arguments[r];for(var o in t)Object.prototype.hasOwnProperty.call(t,o)&&(e[o]=t[o])}return e};Object.defineProperty(t,"__esModule",{value:!0});var o=r(0),i=r(23);t.Circle=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/geometry/Circle",geometryProperties:n({},e.geometryProperties)}))},t.Extent=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/geometry/Extent",geometryProperties:n({},e.geometryProperties)}))},t.Multipoint=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/geometry/Multipoint",geometryProperties:n({},e.geometryProperties)}))},t.Point=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/geometry/Point",geometryProperties:n({},e.geometryProperties)}))},t.Polygon=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/geometry/Polygon",geometryProperties:n({},e.geometryProperties)}))},t.Polyline=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/geometry/Polyline",geometryProperties:n({},e.geometryProperties)}))},t.ScreenPoint=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/geometry/ScreenPoint",geometryProperties:n({},e.geometryProperties)}))},t.SpatialReference=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/geometry/SpatialReference",geometryProperties:n({},e.geometryProperties)}))}},function(e,t,r){"use strict";var n=this&&this.__extends||function(){var e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var r in t)t.hasOwnProperty(r)&&(e[r]=t[r])};return function(t,r){function n(){this.constructor=t}e(t,r),t.prototype=null===r?Object.create(r):(n.prototype=r.prototype,new n)}}();Object.defineProperty(t,"__esModule",{value:!0});var o=r(1),i=r(0),a=function(e){function t(t){var r=e.call(this,t)||this;return r.state={graphic:r.props.graphic,instance:null,scriptUri:r.props.scriptUri},r.createGeometry=r.createGeometry.bind(r),r}return n(t,e),t.prototype.render=function(){return null},t.prototype.componentDidMount=function(){var e=this;o.esriPromise([this.props.scriptUri]).then(function(t){var r=t[0];e.createGeometry(r),e.props.onLoad&&e.props.onLoad(e.state.instance)}).catch(function(t){e.props.onFail&&e.props.onFail(t)})},t.prototype.componentWillReceiveProps=function(e){var t=this;"oneWay"===this.props.dataFlow&&Object.keys(e.geometryProperties).forEach(function(r){t.state.instance.get(r)&&t.state.instance.set(r,e.geometryProperties[r])})},t.prototype.createGeometry=function(e){var t=new e(this.props.geometryProperties);this.setState({instance:t}),this.props.registerGeometry(t)},t}(i.Component);t.default=a},function(e,t,r){"use strict";var n=this&&this.__extends||function(){var e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var r in t)t.hasOwnProperty(r)&&(e[r]=t[r])};return function(t,r){function n(){this.constructor=t}e(t,r),t.prototype=null===r?Object.create(r):(n.prototype=r.prototype,new n)}}(),o=this&&this.__assign||Object.assign||function(e){for(var t,r=1,n=arguments.length;r<n;r++){t=arguments[r];for(var o in t)Object.prototype.hasOwnProperty.call(t,o)&&(e[o]=t[o])}return e};Object.defineProperty(t,"__esModule",{value:!0});var i=r(1),a=r(0),s=function(e){function t(t){var r=e.call(this,t)||this;return r.state={constructor:null,geometry:null,instance:null,layer:r.props.layer,map:r.props.map,symbol:null,view:r.props.view},r.renderGraphic=r.renderGraphic.bind(r),r.registerSymbol=r.registerSymbol.bind(r),r.registerGeometry=r.registerGeometry.bind(r),r}return n(t,e),t.prototype.render=function(){var e=this,t=a.Children.map(this.props.children,function(t){var r=t;return a.cloneElement(r,{registerGeometry:e.registerGeometry,registerSymbol:e.registerSymbol})});return a.createElement("div",null,t)},t.prototype.renderGraphic=function(){if(this.state.constructor&&this.state.symbol&&this.state.geometry){var e=new this.state.constructor(o({geometry:this.state.geometry,symbol:this.state.symbol},this.props.graphicProperties));this.setState({instance:e}),this.state.layer?this.state.layer.graphics.add(e):this.state.view&&this.state.view.graphics.add(e),this.props.onLoad&&this.props.onLoad(e)}},t.prototype.componentDidMount=function(){var e=this;i.esriPromise(["esri/Graphic"]).then(function(t){var r=t[0];e.setState({constructor:r}),e.renderGraphic()}).catch(function(t){e.props.onFail&&e.props.onFail(t)})},t.prototype.componentWillUnmount=function(){this.state.layer?this.state.layer.graphics.remove(this.state.instance):this.state.view&&this.state.view.graphics.remove(this.state.instance)},t.prototype.componentWillReceiveProps=function(e){var t=this;e.graphicProperties&&"oneWay"===this.props.dataFlow&&Object.keys(e.graphicProperties).forEach(function(r){t.state.instance.get(r)&&t.state.instance.set(r,e.graphicProperties[r])})},t.prototype.registerSymbol=function(e){this.setState({symbol:e}),this.renderGraphic()},t.prototype.registerGeometry=function(e){this.setState({geometry:e}),this.renderGraphic()},t}(a.Component);t.default=s},function(e,t,r){"use strict";var n=this&&this.__assign||Object.assign||function(e){for(var t,r=1,n=arguments.length;r<n;r++){t=arguments[r];for(var o in t)Object.prototype.hasOwnProperty.call(t,o)&&(e[o]=t[o])}return e};Object.defineProperty(t,"__esModule",{value:!0});var o=r(0),i=r(26);t.CSVLayer=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/layers/CSVLayer",layerProperties:n({},e.layerProperties),addLocation:["map"],eventMap:{onLayerviewCreate:"layerview-create",onLayerviewDestroy:"layerview-destroy"}}))},t.ElevationLayer=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/layers/ElevationLayer",layerProperties:n({},e.layerProperties),addLocation:["map","ground","layers"],eventMap:{onLayerviewCreate:"layerview-create",onLayerviewDestroy:"layerview-destroy"}}))},t.FeatureLayer=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/layers/FeatureLayer",layerProperties:n({},e.layerProperties),addLocation:["map"],eventMap:{onLayerviewCreate:"layerview-create",onLayerviewDestroy:"layerview-destroy"}}))},t.GeoRSSLayer=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/layers/GeoRSSLayer",layerProperties:n({},e.layerProperties),addLocation:["map"],eventMap:{onLayerviewCreate:"layerview-create",onLayerviewDestroy:"layerview-destroy"}}))},t.GraphicsLayer=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/layers/GraphicsLayer",layerProperties:n({},e.layerProperties),addLocation:["map"],eventMap:{onLayerviewCreate:"layerview-create",onLayerviewDestroy:"layerview-destroy"}}))},t.GroupLayer=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/layers/GroupLayer",layerProperties:n({},e.layerProperties),addLocation:["map"],eventMap:{onLayerviewCreate:"layerview-create",onLayerviewDestroy:"layerview-destroy"}}))},t.ImageryLayer=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/layers/ImageryLayer",layerProperties:n({},e.layerProperties),addLocation:["map"],eventMap:{onLayerviewCreate:"layerview-create",onLayerviewDestroy:"layerview-destroy"}}))},t.IntegratedMeshLayer=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/layers/IntegratedMeshLayer",layerProperties:n({},e.layerProperties),addLocation:["map"],eventMap:{onLayerviewCreate:"layerview-create",onLayerviewDestroy:"layerview-destroy"}}))},t.MapImageLayer=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/layers/MapImageLayer",layerProperties:n({},e.layerProperties),addLocation:["map"],eventMap:{onLayerviewCreate:"layerview-create",onLayerviewDestroy:"layerview-destroy"}}))},t.OpenStreetMapLayer=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/layers/OpenStreetMapLayer",addLocation:["map"],eventMap:{onLayerviewCreate:"layerview-create",onLayerviewDestroy:"layerview-destroy"}}))},t.PointCloudLayer=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/layers/PointCloudLayer",addLocation:["map"],eventMap:{onLayerviewCreate:"layerview-create",onLayerviewDestroy:"layerview-destroy"}}))},t.SceneLayer=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/layers/SceneLayer",addLocation:["map"],eventMap:{onLayerviewCreate:"layerview-create",onLayerviewDestroy:"layerview-destroy"}}))},t.StreamLayer=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/layers/StreamLayer",addLocation:["map"],eventMap:{onLayerviewCreate:"layerview-create",onLayerviewDestroy:"layerview-destroy"}}))},t.TileLayer=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/layers/TileLayer",addLocation:["map"],eventMap:{onLayerviewCreate:"layerview-create",onLayerviewDestroy:"layerview-destroy"}}))},t.VectorTileLayer=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/layers/VectorTileLayer",addLocation:["map"],eventMap:{onLayerviewCreate:"layerview-create",onLayerviewDestroy:"layerview-destroy"}}))},t.WebTileLayer=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/layers/WebTileLayer",addLocation:["map"],eventMap:{onLayerviewCreate:"layerview-create",onLayerviewDestroy:"layerview-destroy"}}))}},function(e,t,r){"use strict";var n=this&&this.__extends||function(){var e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var r in t)t.hasOwnProperty(r)&&(e[r]=t[r])};return function(t,r){function n(){this.constructor=t}e(t,r),t.prototype=null===r?Object.create(r):(n.prototype=r.prototype,new n)}}();Object.defineProperty(t,"__esModule",{value:!0});var o=r(1),i=r(0),a=function(e){function t(t){var r=e.call(this,t)||this;return r.state={instance:null,map:r.props.map,scriptUri:r.props.scriptUri,status:"loading",view:r.props.view},r.renderLayer=r.renderLayer.bind(r),r}return n(t,e),t.prototype.render=function(){var e=this;if("loaded"===this.state.status){var t=i.Children.map(this.props.children,function(t){var r=t;return i.cloneElement(r,{layer:e.state.instance})});return i.createElement("div",null,t)}return null},t.prototype.componentWillUnmount=function(){this.state.map.remove(this.state.instance)},t.prototype.componentDidMount=function(){var e=this;o.esriPromise([this.props.scriptUri]).then(function(t){var r=t[0];e.renderLayer(r),e.setState({status:"loaded"}),e.props.onLoad&&e.props.onLoad(e.state.instance)}).catch(function(t){e.setState({status:"failed"}),e.props.onFail&&e.props.onFail(t)})},t.prototype.componentWillReceiveProps=function(e){var t=this;"oneWay"===this.props.dataFlow&&Object.keys(e.layerProperties).forEach(function(r){t.state.instance.get(r)&&t.state.instance.set(r,e.layerProperties[r])})},t.prototype.renderLayer=function(e){var t=this,r=new e(this.props.layerProperties);Object.keys(this.props.eventMap).forEach(function(e){t.props[e]&&r.on(t.props.eventMap[e],t.props[e])}),this.setState({instance:r}),this.props.addLocation.reduce(function(e,t){return e[t]},this.state).add(r)},t}(i.Component);t.default=a},function(e,t,r){"use strict";var n=this&&this.__assign||Object.assign||function(e){for(var t,r=1,n=arguments.length;r<n;r++){t=arguments[r];for(var o in t)Object.prototype.hasOwnProperty.call(t,o)&&(e[o]=t[o])}return e};Object.defineProperty(t,"__esModule",{value:!0});var o=r(0),i=r(28);t.Font=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/symbols/Font",symbolProperties:n({},e.symbolProperties)}))},t.PictureFillSymbol=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/symbols/PictureFillSymbol",symbolProperties:n({},e.symbolProperties)}))},t.PictureMarkerSymbol=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/symbols/PictureMarkerSymbol",symbolProperties:n({},e.symbolProperties)}))},t.SimpleFillSymbol=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/symbols/SimpleFillSymbol",symbolProperties:n({},e.symbolProperties)}))},t.SimpleLineSymbol=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/symbols/SimpleLineSymbol",symbolProperties:n({},e.symbolProperties)}))},t.SimpleMarkerSymbol=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/symbols/SimpleMarkerSymbol",symbolProperties:n({},e.symbolProperties)}))}},function(e,t,r){"use strict";var n=this&&this.__extends||function(){var e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var r in t)t.hasOwnProperty(r)&&(e[r]=t[r])};return function(t,r){function n(){this.constructor=t}e(t,r),t.prototype=null===r?Object.create(r):(n.prototype=r.prototype,new n)}}();Object.defineProperty(t,"__esModule",{value:!0});var o=r(1),i=r(0),a=function(e){function t(t){var r=e.call(this,t)||this;return r.state={graphic:r.props.graphic,instance:null,scriptUri:r.props.scriptUri},r.createSymbol=r.createSymbol.bind(r),r}return n(t,e),t.prototype.render=function(){return null},t.prototype.componentDidMount=function(){var e=this;o.esriPromise([this.props.scriptUri]).then(function(t){var r=t[0];e.createSymbol(r),e.props.onLoad&&e.props.onLoad(e.state.instance)}).catch(function(t){e.props.onFail&&e.props.onFail(t)})},t.prototype.componentWillReceiveProps=function(e){var t=this;"oneWay"===this.props.dataFlow&&Object.keys(e.symbolProperties).forEach(function(r){t.state.instance.get(r)&&t.state.instance.set(r,e.symbolProperties[r])})},t.prototype.createSymbol=function(e){var t=new e(this.props.symbolProperties);this.setState({instance:t}),this.props.registerSymbol(t)},t}(i.Component);t.default=a},function(e,t,r){"use strict";var n=this&&this.__assign||Object.assign||function(e){for(var t,r=1,n=arguments.length;r<n;r++){t=arguments[r];for(var o in t)Object.prototype.hasOwnProperty.call(t,o)&&(e[o]=t[o])}return e};Object.defineProperty(t,"__esModule",{value:!0});var o=r(0),i=r(30);t.Attribution=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/widgets/Attribution",widgetProperties:n({},e.widgetProperties),eventMap:{}}))},t.BasemapGallery=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/widgets/BasemapGallery",widgetProperties:n({},e.widgetProperties),eventMap:{}}))},t.BasemapToggle=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/widgets/BasemapToggle",widgetProperties:n({},e.widgetProperties),eventMap:{onToggle:"toggle"}}))},t.ColorSlider=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/widgets/ColorSlider",widgetProperties:n({},e.widgetProperties),eventMap:{onDataChange:"data-change",onDataValueChange:"data-value-change",onHandleValueChange:"handle-value-change"}}))},t.Compass=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/widgets/Compass",widgetProperties:n({},e.widgetProperties),eventMap:{}}))},t.Expand=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/widgets/Expand",widgetProperties:n({},e.widgetProperties),eventMap:{}}))},t.Home=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/widgets/Home",widgetProperties:n({},e.widgetProperties),eventMap:{}}))},t.LayerList=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/widgets/LayerList",widgetProperties:n({},e.widgetProperties),eventMap:{onTriggerAction:"trigger-action"}}))},t.Legend=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/widgets/Legend",widgetProperties:n({},e.widgetProperties),eventMap:{}}))},t.Locate=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/widgets/Locate",widgetProperties:n({},e.widgetProperties),eventMap:{onLocate:"locate",onLocateError:"locate-error"}}))},t.NavigationToggle=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/widgets/NavigationToggle",widgetProperties:n({},e.widgetProperties)}))},t.Popup=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/widgets/Popup",widgetProperties:n({},e.widgetProperties),eventMap:{onTriggerAction:"trigger-action"}}))},t.Print=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/widgets/Print",widgetProperties:n({},e.widgetProperties),eventMap:{}}))},t.ScaleBar=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/widgets/ScaleBar",widgetProperties:n({},e.widgetProperties),eventMap:{}}))},t.Search=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/widgets/Search",widgetProperties:n({},e.widgetProperties),eventMap:{onSearchClear:"search-clear",onSearchComplete:"search-complete",onSearchStart:"search-start",onSelectResult:"select-result",onSuggestComplete:"suggest-complete",onSuggestStart:"suggest-start"}}))},t.SizeSlider=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/widgets/SizeSlider",widgetProperties:n({},e.widgetProperties),eventMap:{onDataChange:"data-change",onDataValueChange:"data-value-change",onHandleValueChange:"handle-value-change"}}))},t.Track=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/widgets/Track",widgetProperties:n({},e.widgetProperties),eventMap:{onTrack:"track",onTrackError:"track-error"}}))},t.UnivariateColorSizeSlider=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/widgets/UnvariateColorSizeSlider",widgetProperties:n({},e.widgetProperties),eventMap:{onDataChange:"data-change",onDataValueChange:"data-value-change",onHandleValueChange:"handle-value-change"}}))},t.Zoom=function(e){return o.createElement(i.default,n({},e,{dataFlow:"oneWay"===e.dataFlow?"oneWay":"oneTime",scriptUri:"esri/widgets/Zoom",widgetProperties:n({},e.widgetProperties),eventMap:{}}))}},function(e,t,r){"use strict";var n=this&&this.__extends||function(){var e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var r in t)t.hasOwnProperty(r)&&(e[r]=t[r])};return function(t,r){function n(){this.constructor=t}e(t,r),t.prototype=null===r?Object.create(r):(n.prototype=r.prototype,new n)}}(),o=this&&this.__assign||Object.assign||function(e){for(var t,r=1,n=arguments.length;r<n;r++){t=arguments[r];for(var o in t)Object.prototype.hasOwnProperty.call(t,o)&&(e[o]=t[o])}return e};Object.defineProperty(t,"__esModule",{value:!0});var i=r(1),a=r(0),s=function(e){function t(t){var r=e.call(this,t)||this;return r.state={instance:null,map:r.props.map,scriptUri:r.props.scriptUri,view:r.props.view},r.renderWidget=r.renderWidget.bind(r),r}return n(t,e),t.prototype.render=function(){return null},t.prototype.componentDidMount=function(){var e=this;i.esriPromise([this.props.scriptUri]).then(function(t){var r=t[0];e.renderWidget(r),e.props.onLoad&&e.props.onLoad(e.state.instance)}).catch(function(t){e.props.onFail&&e.props.onFail(t)})},t.prototype.componentWillUnmount=function(){this.state.view.ui.remove(this.state.instance)},t.prototype.renderWidget=function(e){var t=this,r=o({view:this.state.view},this.props.widgetProperties),n=this.props.position?this.props.position:"manual",i=new e(r);Object.keys(this.props.eventMap).forEach(function(e){t.props[e]&&i.on(t.props.eventMap[e],t.props[e])}),this.setState({instance:i}),this.state.view.ui.add(i,{position:n})},t.prototype.componentWillReceiveProps=function(e){var t=this;Object.keys(e.widgetProperties).forEach(function(r){t.state.instance.get(r)&&t.state.instance.set(r,e.widgetProperties[r])})},t}(a.Component);t.default=s},function(e,t,r){"use strict";var n=this&&this.__extends||function(){var e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var r in t)t.hasOwnProperty(r)&&(e[r]=t[r])};return function(t,r){function n(){this.constructor=t}e(t,r),t.prototype=null===r?Object.create(r):(n.prototype=r.prototype,new n)}}();Object.defineProperty(t,"__esModule",{value:!0});var o=r(0),i=function(e){function t(t){var r=e.call(this,t)||this;return r.state={map:r.props.map,mounted:!1,view:r.props.view},r}return n(t,e),t.prototype.render=function(){return null},t.prototype.componentDidMount=function(){this.props.popupProperties?(this.state.view.popup.open(this.props.popupProperties),this.setState({mounted:!0})):console.warn("React-arcgis attempted to display a popup without any content. Please include popupProperties in order to see the popup.")},t.prototype.componentWillUnmount=function(){this.state.mounted&&(this.state.view.popup.close(),this.setState({mounted:!1}))},t.prototype.componentWillReceiveProps=function(e){e.popupProperties&&this.state.mounted&&e.popupProperties!==this.props.popupProperties&&(this.state.view.popup.close(),this.state.view.popup.open(e.popupProperties))},t}(o.Component);t.default=i},function(e,t,r){"use strict";var n=this&&this.__extends||function(){var e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var r in t)t.hasOwnProperty(r)&&(e[r]=t[r])};return function(t,r){function n(){this.constructor=t}e(t,r),t.prototype=null===r?Object.create(r):(n.prototype=r.prototype,new n)}}();Object.defineProperty(t,"__esModule",{value:!0});var o=r(0),i=r(33),a=r(34),s=r(35),p=r(36),l=r(37),c=function(e){function t(t){var r=e.call(this,t)||this;return r.state={changingTitle:!1,menuActive:!1},r.handleMenuToggle=r.handleMenuToggle.bind(r),r.toggleChangingTitle=r.toggleChangingTitle.bind(r),r}return n(t,e),t.prototype.render=function(){var e=null;return this.state.menuActive&&(e=o.createElement(p.default,{handlePropertyChange:this.props.handlePropertyChange,handleLiveRenderingChange:this.props.handleLiveRenderingChange,updateRenderer:this.props.updateRenderer,index:this.props.index,map:this.props.map})),o.createElement("header",{className:"map-toolbar"},o.createElement(l.default,{handleMenuToggle:this.handleMenuToggle,handleTitleChange:this.props.handleTitleChange,toggleChangingTitle:this.toggleChangingTitle,changingTitle:this.state.changingTitle,title:this.props.map.title,menuActive:this.state.menuActive,index:this.props.index,mapOrder:this.props.mapOrder,mapNumber:this.props.mapNumber}),o.createElement(s.default,{toggleChangingTitle:this.toggleChangingTitle,changingTitle:this.state.changingTitle,index:this.props.index,map:this.props.map,mapOrder:this.props.mapOrder,mapNumber:this.props.mapNumber}),o.createElement(a.default,{handleMapClose:this.props.handleMapClose,index:this.props.index,mapOrder:this.props.mapOrder,mapNumber:this.props.mapNumber}),o.createElement(i.default,{handleMapClone:this.props.handleMapClone,index:this.props.index,mapOrder:this.props.mapOrder,mapNumber:this.props.mapNumber}),e)},t.prototype.handleMenuToggle=function(){this.setState({menuActive:!this.state.menuActive})},t.prototype.toggleChangingTitle=function(){this.state.changingTitle||setTimeout(function(){document.querySelector(".window-title-input").focus()},1),this.setState({changingTitle:!this.state.changingTitle})},t}(o.Component);t.default=c},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n=r(0);t.default=function(e){return n.createElement("button",{className:"\n            btn\n            btn-transparent\n            map-toolbar-item\n            map-toolbar-button\n            "+(e.index!==e.mapNumber&&0!==e.mapNumber&&"column"!==e.mapOrder?"toolbar-tooltip":"toolbar-tooltip-left")+"\n        ","aria-label":"Duplicate map",onClick:function(){e.handleMapClone(e.index)}},n.createElement("svg",{xmlns:"http://www.w3.org/2000/svg",width:"32",height:"32",viewBox:"0 0 32 32",className:"svg-icon"},n.createElement("path",{d:"M30 18H18v12h-4V18H2v-4h12V2h4v12h12v4z"})))}},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n=r(0);t.default=function(e){return n.createElement("button",{className:"\n            btn\n            btn-transparent\n            map-toolbar-item\n            map-toolbar-button\n            "+(e.index!==e.mapNumber&&0!==e.mapNumber&&"column"!==e.mapOrder?"toolbar-tooltip":"toolbar-tooltip-left")+"\n        ","aria-label":"Close map",onClick:function(){e.handleMapClose(e.index)}},n.createElement("svg",{xmlns:"http://www.w3.org/2000/svg",width:"32",height:"32",viewBox:"0 0 32 32",className:"svg-icon"},n.createElement("path",{d:"M18.404 16l9.9 9.9-2.404 2.404-9.9-9.9-9.9 9.9L3.696 25.9l9.9-9.9-9.9-9.898L6.1 3.698l9.9 9.899 9.9-9.9 2.404 2.406-9.9 9.898z"})))}},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n=r(0);t.default=function(e){var t=e.changingTitle?n.createElement("svg",{xmlns:"http://www.w3.org/2000/svg",width:"32",height:"32",viewBox:"0 0 32 32",className:"svg-icon"},n.createElement("path",{fill:"#5a9359",d:"M11.927 22l-6.882-6.883-3 3L11.927 28 31.204 8.728l-3.001-3.001z"})):n.createElement("svg",{xmlns:"http://www.w3.org/2000/svg",width:"32",height:"32",viewBox:"0 0 32 32",className:"svg-icon"},n.createElement("path",{d:"M27.443 9.439l-4.955-4.953 1.652-1.65a2.337 2.337 0 0 1 3.301 0l1.648 1.65a2.33 2.33 0 0 1 .004 3.299l-1.65 1.654zM4.924 22.195l-2.373 7.254 7.328-2.301-4.955-4.953zM20.455 6.713L7.379 19.555l4.951 4.949 13.074-12.842-4.949-4.949z"}));return n.createElement("button",{className:"\n                btn\n                btn-transparent\n                map-toolbar-item\n                edit-title-button\n                "+(0!==e.index&&"column"!==e.mapOrder?"toolbar-tooltip":"toolbar-tooltip-right")+"\n            ","aria-label":e.changingTitle?"Accept changes":"Edit title",onClick:function(){e.toggleChangingTitle()}},t)}},function(e,t,r){"use strict";var n=this&&this.__extends||function(){var e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var r in t)t.hasOwnProperty(r)&&(e[r]=t[r])};return function(t,r){function n(){this.constructor=t}e(t,r),t.prototype=null===r?Object.create(r):(n.prototype=r.prototype,new n)}}();Object.defineProperty(t,"__esModule",{value:!0});var o=r(0),i=function(e){function t(t){var r=e.call(this,t)||this;return r.toggleLiveRendering=r.toggleLiveRendering.bind(r),r}return n(t,e),t.prototype.render=function(){var e=this,t=Object.keys(this.props.map.exposedProperties).map(function(t,r){var n=e.props.map.exposedProperties[t],i=n.description?o.createElement("p",{className:"property-description"},n.description):null;return o.createElement("div",null,o.createElement("label",null,t," (",n.value,")",i,o.createElement("input",{className:"property-input",type:n.inputType,min:n.min,max:n.max,value:n.value,onChange:function(r){r.preventDefault(),e.props.handlePropertyChange(t,r.target.value),e.props.map.liveRendering&&e.props.updateRenderer()}})))}),r=this.props.map.liveRendering?null:o.createElement("button",{className:"btn btn-clear btn-fill apply-button",onClick:function(){e.props.updateRenderer()}},"Apply");return o.createElement("div",{className:"map-menu"},t,o.createElement("label",null,o.createElement("span",{className:"property-description"},"Live rendering (slow-ish)"),o.createElement("input",{onChange:this.toggleLiveRendering,checked:this.props.map.liveRendering,type:"checkbox"})),r)},t.prototype.toggleLiveRendering=function(e){e.preventDefault(),this.props.handleLiveRenderingChange(this.props.index,!this.props.map.liveRendering)},t}(o.Component);t.default=i},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n=r(0);t.default=function(e){return e.changingTitle?n.createElement("input",{className:"window-title-input",type:"text",value:e.title,onChange:function(t){t.preventDefault(),e.handleTitleChange(e.index,t.target.value)},onKeyPress:function(t){13===t.keyCode&&(t.preventDefault(),e.toggleChangingTitle())}}):n.createElement("button",{className:"\n                btn btn-transparent map-toolbar-item\n                "+(0!==e.index&&"column"!==e.mapOrder?"toolbar-tooltip":"toolbar-tooltip-right")+"\n            ","aria-label":e.menuActive?"Close menu":"Customize Arcade model"},n.createElement("b",null,n.createElement("p",{className:(e.menuActive?"icon-ui-left":"icon-ui-handle-vertical")+" window-title",onClick:e.handleMenuToggle},e.title)))}},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n=r(0);t.default=function(e){return n.createElement("header",{id:"app-nav",className:"top-nav fade-in"},n.createElement("div",{className:"grid-container"},n.createElement("div",{className:"column-24"},n.createElement("div",{className:"tablet-hide"},n.createElement("a",{className:"skip-to-content",href:"#skip-to-content"},"Skip To Content"),n.createElement("a",{href:"#",className:"top-nav-title"},"Site Suitability Prototype")),n.createElement("div",{className:"tablet-show top-nav-flex"},n.createElement("nav",{className:"top-nav-flex-list",role:"navigation","aria-labelledby":"topnav"},n.createElement("a",{href:"/",className:"icon-ui-menu top-nav-link js-drawer-toggle","data-drawer":"left"},n.createElement("span",{className:"phone-hide"},"Menu"))),n.createElement("header",{className:"top-nav-flex-title"},n.createElement("a",{href:"/",className:"top-nav-link"},"Site Suitability Prototype"))))))}},function(e,t){}]);
+
+(function (global, factory) {
+	 true ? module.exports = factory() :
+	typeof define === 'function' && define.amd ? define(factory) :
+	(global.ES6Promise = factory());
+}(this, (function () { 'use strict';
+
+function objectOrFunction(x) {
+  var type = typeof x;
+  return x !== null && (type === 'object' || type === 'function');
+}
+
+function isFunction(x) {
+  return typeof x === 'function';
+}
+
+var _isArray = undefined;
+if (Array.isArray) {
+  _isArray = Array.isArray;
+} else {
+  _isArray = function (x) {
+    return Object.prototype.toString.call(x) === '[object Array]';
+  };
+}
+
+var isArray = _isArray;
+
+var len = 0;
+var vertxNext = undefined;
+var customSchedulerFn = undefined;
+
+var asap = function asap(callback, arg) {
+  queue[len] = callback;
+  queue[len + 1] = arg;
+  len += 2;
+  if (len === 2) {
+    // If len is 2, that means that we need to schedule an async flush.
+    // If additional callbacks are queued before the queue is flushed, they
+    // will be processed by this flush that we are scheduling.
+    if (customSchedulerFn) {
+      customSchedulerFn(flush);
+    } else {
+      scheduleFlush();
+    }
+  }
+};
+
+function setScheduler(scheduleFn) {
+  customSchedulerFn = scheduleFn;
+}
+
+function setAsap(asapFn) {
+  asap = asapFn;
+}
+
+var browserWindow = typeof window !== 'undefined' ? window : undefined;
+var browserGlobal = browserWindow || {};
+var BrowserMutationObserver = browserGlobal.MutationObserver || browserGlobal.WebKitMutationObserver;
+var isNode = typeof self === 'undefined' && typeof process !== 'undefined' && ({}).toString.call(process) === '[object process]';
+
+// test for web worker but not in IE10
+var isWorker = typeof Uint8ClampedArray !== 'undefined' && typeof importScripts !== 'undefined' && typeof MessageChannel !== 'undefined';
+
+// node
+function useNextTick() {
+  // node version 0.10.x displays a deprecation warning when nextTick is used recursively
+  // see https://github.com/cujojs/when/issues/410 for details
+  return function () {
+    return process.nextTick(flush);
+  };
+}
+
+// vertx
+function useVertxTimer() {
+  if (typeof vertxNext !== 'undefined') {
+    return function () {
+      vertxNext(flush);
+    };
+  }
+
+  return useSetTimeout();
+}
+
+function useMutationObserver() {
+  var iterations = 0;
+  var observer = new BrowserMutationObserver(flush);
+  var node = document.createTextNode('');
+  observer.observe(node, { characterData: true });
+
+  return function () {
+    node.data = iterations = ++iterations % 2;
+  };
+}
+
+// web worker
+function useMessageChannel() {
+  var channel = new MessageChannel();
+  channel.port1.onmessage = flush;
+  return function () {
+    return channel.port2.postMessage(0);
+  };
+}
+
+function useSetTimeout() {
+  // Store setTimeout reference so es6-promise will be unaffected by
+  // other code modifying setTimeout (like sinon.useFakeTimers())
+  var globalSetTimeout = setTimeout;
+  return function () {
+    return globalSetTimeout(flush, 1);
+  };
+}
+
+var queue = new Array(1000);
+function flush() {
+  for (var i = 0; i < len; i += 2) {
+    var callback = queue[i];
+    var arg = queue[i + 1];
+
+    callback(arg);
+
+    queue[i] = undefined;
+    queue[i + 1] = undefined;
+  }
+
+  len = 0;
+}
+
+function attemptVertx() {
+  try {
+    var r = require;
+    var vertx = __webpack_require__(6);
+    vertxNext = vertx.runOnLoop || vertx.runOnContext;
+    return useVertxTimer();
+  } catch (e) {
+    return useSetTimeout();
+  }
+}
+
+var scheduleFlush = undefined;
+// Decide what async method to use to triggering processing of queued callbacks:
+if (isNode) {
+  scheduleFlush = useNextTick();
+} else if (BrowserMutationObserver) {
+  scheduleFlush = useMutationObserver();
+} else if (isWorker) {
+  scheduleFlush = useMessageChannel();
+} else if (browserWindow === undefined && "function" === 'function') {
+  scheduleFlush = attemptVertx();
+} else {
+  scheduleFlush = useSetTimeout();
+}
+
+function then(onFulfillment, onRejection) {
+  var _arguments = arguments;
+
+  var parent = this;
+
+  var child = new this.constructor(noop);
+
+  if (child[PROMISE_ID] === undefined) {
+    makePromise(child);
+  }
+
+  var _state = parent._state;
+
+  if (_state) {
+    (function () {
+      var callback = _arguments[_state - 1];
+      asap(function () {
+        return invokeCallback(_state, child, callback, parent._result);
+      });
+    })();
+  } else {
+    subscribe(parent, child, onFulfillment, onRejection);
+  }
+
+  return child;
+}
+
+/**
+  `Promise.resolve` returns a promise that will become resolved with the
+  passed `value`. It is shorthand for the following:
+
+  ```javascript
+  let promise = new Promise(function(resolve, reject){
+    resolve(1);
+  });
+
+  promise.then(function(value){
+    // value === 1
+  });
+  ```
+
+  Instead of writing the above, your code now simply becomes the following:
+
+  ```javascript
+  let promise = Promise.resolve(1);
+
+  promise.then(function(value){
+    // value === 1
+  });
+  ```
+
+  @method resolve
+  @static
+  @param {Any} value value that the returned promise will be resolved with
+  Useful for tooling.
+  @return {Promise} a promise that will become fulfilled with the given
+  `value`
+*/
+function resolve$1(object) {
+  /*jshint validthis:true */
+  var Constructor = this;
+
+  if (object && typeof object === 'object' && object.constructor === Constructor) {
+    return object;
+  }
+
+  var promise = new Constructor(noop);
+  resolve(promise, object);
+  return promise;
+}
+
+var PROMISE_ID = Math.random().toString(36).substring(16);
+
+function noop() {}
+
+var PENDING = void 0;
+var FULFILLED = 1;
+var REJECTED = 2;
+
+var GET_THEN_ERROR = new ErrorObject();
+
+function selfFulfillment() {
+  return new TypeError("You cannot resolve a promise with itself");
+}
+
+function cannotReturnOwn() {
+  return new TypeError('A promises callback cannot return that same promise.');
+}
+
+function getThen(promise) {
+  try {
+    return promise.then;
+  } catch (error) {
+    GET_THEN_ERROR.error = error;
+    return GET_THEN_ERROR;
+  }
+}
+
+function tryThen(then$$1, value, fulfillmentHandler, rejectionHandler) {
+  try {
+    then$$1.call(value, fulfillmentHandler, rejectionHandler);
+  } catch (e) {
+    return e;
+  }
+}
+
+function handleForeignThenable(promise, thenable, then$$1) {
+  asap(function (promise) {
+    var sealed = false;
+    var error = tryThen(then$$1, thenable, function (value) {
+      if (sealed) {
+        return;
+      }
+      sealed = true;
+      if (thenable !== value) {
+        resolve(promise, value);
+      } else {
+        fulfill(promise, value);
+      }
+    }, function (reason) {
+      if (sealed) {
+        return;
+      }
+      sealed = true;
+
+      reject(promise, reason);
+    }, 'Settle: ' + (promise._label || ' unknown promise'));
+
+    if (!sealed && error) {
+      sealed = true;
+      reject(promise, error);
+    }
+  }, promise);
+}
+
+function handleOwnThenable(promise, thenable) {
+  if (thenable._state === FULFILLED) {
+    fulfill(promise, thenable._result);
+  } else if (thenable._state === REJECTED) {
+    reject(promise, thenable._result);
+  } else {
+    subscribe(thenable, undefined, function (value) {
+      return resolve(promise, value);
+    }, function (reason) {
+      return reject(promise, reason);
+    });
+  }
+}
+
+function handleMaybeThenable(promise, maybeThenable, then$$1) {
+  if (maybeThenable.constructor === promise.constructor && then$$1 === then && maybeThenable.constructor.resolve === resolve$1) {
+    handleOwnThenable(promise, maybeThenable);
+  } else {
+    if (then$$1 === GET_THEN_ERROR) {
+      reject(promise, GET_THEN_ERROR.error);
+      GET_THEN_ERROR.error = null;
+    } else if (then$$1 === undefined) {
+      fulfill(promise, maybeThenable);
+    } else if (isFunction(then$$1)) {
+      handleForeignThenable(promise, maybeThenable, then$$1);
+    } else {
+      fulfill(promise, maybeThenable);
+    }
+  }
+}
+
+function resolve(promise, value) {
+  if (promise === value) {
+    reject(promise, selfFulfillment());
+  } else if (objectOrFunction(value)) {
+    handleMaybeThenable(promise, value, getThen(value));
+  } else {
+    fulfill(promise, value);
+  }
+}
+
+function publishRejection(promise) {
+  if (promise._onerror) {
+    promise._onerror(promise._result);
+  }
+
+  publish(promise);
+}
+
+function fulfill(promise, value) {
+  if (promise._state !== PENDING) {
+    return;
+  }
+
+  promise._result = value;
+  promise._state = FULFILLED;
+
+  if (promise._subscribers.length !== 0) {
+    asap(publish, promise);
+  }
+}
+
+function reject(promise, reason) {
+  if (promise._state !== PENDING) {
+    return;
+  }
+  promise._state = REJECTED;
+  promise._result = reason;
+
+  asap(publishRejection, promise);
+}
+
+function subscribe(parent, child, onFulfillment, onRejection) {
+  var _subscribers = parent._subscribers;
+  var length = _subscribers.length;
+
+  parent._onerror = null;
+
+  _subscribers[length] = child;
+  _subscribers[length + FULFILLED] = onFulfillment;
+  _subscribers[length + REJECTED] = onRejection;
+
+  if (length === 0 && parent._state) {
+    asap(publish, parent);
+  }
+}
+
+function publish(promise) {
+  var subscribers = promise._subscribers;
+  var settled = promise._state;
+
+  if (subscribers.length === 0) {
+    return;
+  }
+
+  var child = undefined,
+      callback = undefined,
+      detail = promise._result;
+
+  for (var i = 0; i < subscribers.length; i += 3) {
+    child = subscribers[i];
+    callback = subscribers[i + settled];
+
+    if (child) {
+      invokeCallback(settled, child, callback, detail);
+    } else {
+      callback(detail);
+    }
+  }
+
+  promise._subscribers.length = 0;
+}
+
+function ErrorObject() {
+  this.error = null;
+}
+
+var TRY_CATCH_ERROR = new ErrorObject();
+
+function tryCatch(callback, detail) {
+  try {
+    return callback(detail);
+  } catch (e) {
+    TRY_CATCH_ERROR.error = e;
+    return TRY_CATCH_ERROR;
+  }
+}
+
+function invokeCallback(settled, promise, callback, detail) {
+  var hasCallback = isFunction(callback),
+      value = undefined,
+      error = undefined,
+      succeeded = undefined,
+      failed = undefined;
+
+  if (hasCallback) {
+    value = tryCatch(callback, detail);
+
+    if (value === TRY_CATCH_ERROR) {
+      failed = true;
+      error = value.error;
+      value.error = null;
+    } else {
+      succeeded = true;
+    }
+
+    if (promise === value) {
+      reject(promise, cannotReturnOwn());
+      return;
+    }
+  } else {
+    value = detail;
+    succeeded = true;
+  }
+
+  if (promise._state !== PENDING) {
+    // noop
+  } else if (hasCallback && succeeded) {
+      resolve(promise, value);
+    } else if (failed) {
+      reject(promise, error);
+    } else if (settled === FULFILLED) {
+      fulfill(promise, value);
+    } else if (settled === REJECTED) {
+      reject(promise, value);
+    }
+}
+
+function initializePromise(promise, resolver) {
+  try {
+    resolver(function resolvePromise(value) {
+      resolve(promise, value);
+    }, function rejectPromise(reason) {
+      reject(promise, reason);
+    });
+  } catch (e) {
+    reject(promise, e);
+  }
+}
+
+var id = 0;
+function nextId() {
+  return id++;
+}
+
+function makePromise(promise) {
+  promise[PROMISE_ID] = id++;
+  promise._state = undefined;
+  promise._result = undefined;
+  promise._subscribers = [];
+}
+
+function Enumerator$1(Constructor, input) {
+  this._instanceConstructor = Constructor;
+  this.promise = new Constructor(noop);
+
+  if (!this.promise[PROMISE_ID]) {
+    makePromise(this.promise);
+  }
+
+  if (isArray(input)) {
+    this.length = input.length;
+    this._remaining = input.length;
+
+    this._result = new Array(this.length);
+
+    if (this.length === 0) {
+      fulfill(this.promise, this._result);
+    } else {
+      this.length = this.length || 0;
+      this._enumerate(input);
+      if (this._remaining === 0) {
+        fulfill(this.promise, this._result);
+      }
+    }
+  } else {
+    reject(this.promise, validationError());
+  }
+}
+
+function validationError() {
+  return new Error('Array Methods must be provided an Array');
+}
+
+Enumerator$1.prototype._enumerate = function (input) {
+  for (var i = 0; this._state === PENDING && i < input.length; i++) {
+    this._eachEntry(input[i], i);
+  }
+};
+
+Enumerator$1.prototype._eachEntry = function (entry, i) {
+  var c = this._instanceConstructor;
+  var resolve$$1 = c.resolve;
+
+  if (resolve$$1 === resolve$1) {
+    var _then = getThen(entry);
+
+    if (_then === then && entry._state !== PENDING) {
+      this._settledAt(entry._state, i, entry._result);
+    } else if (typeof _then !== 'function') {
+      this._remaining--;
+      this._result[i] = entry;
+    } else if (c === Promise$2) {
+      var promise = new c(noop);
+      handleMaybeThenable(promise, entry, _then);
+      this._willSettleAt(promise, i);
+    } else {
+      this._willSettleAt(new c(function (resolve$$1) {
+        return resolve$$1(entry);
+      }), i);
+    }
+  } else {
+    this._willSettleAt(resolve$$1(entry), i);
+  }
+};
+
+Enumerator$1.prototype._settledAt = function (state, i, value) {
+  var promise = this.promise;
+
+  if (promise._state === PENDING) {
+    this._remaining--;
+
+    if (state === REJECTED) {
+      reject(promise, value);
+    } else {
+      this._result[i] = value;
+    }
+  }
+
+  if (this._remaining === 0) {
+    fulfill(promise, this._result);
+  }
+};
+
+Enumerator$1.prototype._willSettleAt = function (promise, i) {
+  var enumerator = this;
+
+  subscribe(promise, undefined, function (value) {
+    return enumerator._settledAt(FULFILLED, i, value);
+  }, function (reason) {
+    return enumerator._settledAt(REJECTED, i, reason);
+  });
+};
+
+/**
+  `Promise.all` accepts an array of promises, and returns a new promise which
+  is fulfilled with an array of fulfillment values for the passed promises, or
+  rejected with the reason of the first passed promise to be rejected. It casts all
+  elements of the passed iterable to promises as it runs this algorithm.
+
+  Example:
+
+  ```javascript
+  let promise1 = resolve(1);
+  let promise2 = resolve(2);
+  let promise3 = resolve(3);
+  let promises = [ promise1, promise2, promise3 ];
+
+  Promise.all(promises).then(function(array){
+    // The array here would be [ 1, 2, 3 ];
+  });
+  ```
+
+  If any of the `promises` given to `all` are rejected, the first promise
+  that is rejected will be given as an argument to the returned promises's
+  rejection handler. For example:
+
+  Example:
+
+  ```javascript
+  let promise1 = resolve(1);
+  let promise2 = reject(new Error("2"));
+  let promise3 = reject(new Error("3"));
+  let promises = [ promise1, promise2, promise3 ];
+
+  Promise.all(promises).then(function(array){
+    // Code here never runs because there are rejected promises!
+  }, function(error) {
+    // error.message === "2"
+  });
+  ```
+
+  @method all
+  @static
+  @param {Array} entries array of promises
+  @param {String} label optional string for labeling the promise.
+  Useful for tooling.
+  @return {Promise} promise that is fulfilled when all `promises` have been
+  fulfilled, or rejected if any of them become rejected.
+  @static
+*/
+function all$1(entries) {
+  return new Enumerator$1(this, entries).promise;
+}
+
+/**
+  `Promise.race` returns a new promise which is settled in the same way as the
+  first passed promise to settle.
+
+  Example:
+
+  ```javascript
+  let promise1 = new Promise(function(resolve, reject){
+    setTimeout(function(){
+      resolve('promise 1');
+    }, 200);
+  });
+
+  let promise2 = new Promise(function(resolve, reject){
+    setTimeout(function(){
+      resolve('promise 2');
+    }, 100);
+  });
+
+  Promise.race([promise1, promise2]).then(function(result){
+    // result === 'promise 2' because it was resolved before promise1
+    // was resolved.
+  });
+  ```
+
+  `Promise.race` is deterministic in that only the state of the first
+  settled promise matters. For example, even if other promises given to the
+  `promises` array argument are resolved, but the first settled promise has
+  become rejected before the other promises became fulfilled, the returned
+  promise will become rejected:
+
+  ```javascript
+  let promise1 = new Promise(function(resolve, reject){
+    setTimeout(function(){
+      resolve('promise 1');
+    }, 200);
+  });
+
+  let promise2 = new Promise(function(resolve, reject){
+    setTimeout(function(){
+      reject(new Error('promise 2'));
+    }, 100);
+  });
+
+  Promise.race([promise1, promise2]).then(function(result){
+    // Code here never runs
+  }, function(reason){
+    // reason.message === 'promise 2' because promise 2 became rejected before
+    // promise 1 became fulfilled
+  });
+  ```
+
+  An example real-world use case is implementing timeouts:
+
+  ```javascript
+  Promise.race([ajax('foo.json'), timeout(5000)])
+  ```
+
+  @method race
+  @static
+  @param {Array} promises array of promises to observe
+  Useful for tooling.
+  @return {Promise} a promise which settles in the same way as the first passed
+  promise to settle.
+*/
+function race$1(entries) {
+  /*jshint validthis:true */
+  var Constructor = this;
+
+  if (!isArray(entries)) {
+    return new Constructor(function (_, reject) {
+      return reject(new TypeError('You must pass an array to race.'));
+    });
+  } else {
+    return new Constructor(function (resolve, reject) {
+      var length = entries.length;
+      for (var i = 0; i < length; i++) {
+        Constructor.resolve(entries[i]).then(resolve, reject);
+      }
+    });
+  }
+}
+
+/**
+  `Promise.reject` returns a promise rejected with the passed `reason`.
+  It is shorthand for the following:
+
+  ```javascript
+  let promise = new Promise(function(resolve, reject){
+    reject(new Error('WHOOPS'));
+  });
+
+  promise.then(function(value){
+    // Code here doesn't run because the promise is rejected!
+  }, function(reason){
+    // reason.message === 'WHOOPS'
+  });
+  ```
+
+  Instead of writing the above, your code now simply becomes the following:
+
+  ```javascript
+  let promise = Promise.reject(new Error('WHOOPS'));
+
+  promise.then(function(value){
+    // Code here doesn't run because the promise is rejected!
+  }, function(reason){
+    // reason.message === 'WHOOPS'
+  });
+  ```
+
+  @method reject
+  @static
+  @param {Any} reason value that the returned promise will be rejected with.
+  Useful for tooling.
+  @return {Promise} a promise rejected with the given `reason`.
+*/
+function reject$1(reason) {
+  /*jshint validthis:true */
+  var Constructor = this;
+  var promise = new Constructor(noop);
+  reject(promise, reason);
+  return promise;
+}
+
+function needsResolver() {
+  throw new TypeError('You must pass a resolver function as the first argument to the promise constructor');
+}
+
+function needsNew() {
+  throw new TypeError("Failed to construct 'Promise': Please use the 'new' operator, this object constructor cannot be called as a function.");
+}
+
+/**
+  Promise objects represent the eventual result of an asynchronous operation. The
+  primary way of interacting with a promise is through its `then` method, which
+  registers callbacks to receive either a promise's eventual value or the reason
+  why the promise cannot be fulfilled.
+
+  Terminology
+  -----------
+
+  - `promise` is an object or function with a `then` method whose behavior conforms to this specification.
+  - `thenable` is an object or function that defines a `then` method.
+  - `value` is any legal JavaScript value (including undefined, a thenable, or a promise).
+  - `exception` is a value that is thrown using the throw statement.
+  - `reason` is a value that indicates why a promise was rejected.
+  - `settled` the final resting state of a promise, fulfilled or rejected.
+
+  A promise can be in one of three states: pending, fulfilled, or rejected.
+
+  Promises that are fulfilled have a fulfillment value and are in the fulfilled
+  state.  Promises that are rejected have a rejection reason and are in the
+  rejected state.  A fulfillment value is never a thenable.
+
+  Promises can also be said to *resolve* a value.  If this value is also a
+  promise, then the original promise's settled state will match the value's
+  settled state.  So a promise that *resolves* a promise that rejects will
+  itself reject, and a promise that *resolves* a promise that fulfills will
+  itself fulfill.
+
+
+  Basic Usage:
+  ------------
+
+  ```js
+  let promise = new Promise(function(resolve, reject) {
+    // on success
+    resolve(value);
+
+    // on failure
+    reject(reason);
+  });
+
+  promise.then(function(value) {
+    // on fulfillment
+  }, function(reason) {
+    // on rejection
+  });
+  ```
+
+  Advanced Usage:
+  ---------------
+
+  Promises shine when abstracting away asynchronous interactions such as
+  `XMLHttpRequest`s.
+
+  ```js
+  function getJSON(url) {
+    return new Promise(function(resolve, reject){
+      let xhr = new XMLHttpRequest();
+
+      xhr.open('GET', url);
+      xhr.onreadystatechange = handler;
+      xhr.responseType = 'json';
+      xhr.setRequestHeader('Accept', 'application/json');
+      xhr.send();
+
+      function handler() {
+        if (this.readyState === this.DONE) {
+          if (this.status === 200) {
+            resolve(this.response);
+          } else {
+            reject(new Error('getJSON: `' + url + '` failed with status: [' + this.status + ']'));
+          }
+        }
+      };
+    });
+  }
+
+  getJSON('/posts.json').then(function(json) {
+    // on fulfillment
+  }, function(reason) {
+    // on rejection
+  });
+  ```
+
+  Unlike callbacks, promises are great composable primitives.
+
+  ```js
+  Promise.all([
+    getJSON('/posts'),
+    getJSON('/comments')
+  ]).then(function(values){
+    values[0] // => postsJSON
+    values[1] // => commentsJSON
+
+    return values;
+  });
+  ```
+
+  @class Promise
+  @param {function} resolver
+  Useful for tooling.
+  @constructor
+*/
+function Promise$2(resolver) {
+  this[PROMISE_ID] = nextId();
+  this._result = this._state = undefined;
+  this._subscribers = [];
+
+  if (noop !== resolver) {
+    typeof resolver !== 'function' && needsResolver();
+    this instanceof Promise$2 ? initializePromise(this, resolver) : needsNew();
+  }
+}
+
+Promise$2.all = all$1;
+Promise$2.race = race$1;
+Promise$2.resolve = resolve$1;
+Promise$2.reject = reject$1;
+Promise$2._setScheduler = setScheduler;
+Promise$2._setAsap = setAsap;
+Promise$2._asap = asap;
+
+Promise$2.prototype = {
+  constructor: Promise$2,
+
+  /**
+    The primary way of interacting with a promise is through its `then` method,
+    which registers callbacks to receive either a promise's eventual value or the
+    reason why the promise cannot be fulfilled.
+  
+    ```js
+    findUser().then(function(user){
+      // user is available
+    }, function(reason){
+      // user is unavailable, and you are given the reason why
+    });
+    ```
+  
+    Chaining
+    --------
+  
+    The return value of `then` is itself a promise.  This second, 'downstream'
+    promise is resolved with the return value of the first promise's fulfillment
+    or rejection handler, or rejected if the handler throws an exception.
+  
+    ```js
+    findUser().then(function (user) {
+      return user.name;
+    }, function (reason) {
+      return 'default name';
+    }).then(function (userName) {
+      // If `findUser` fulfilled, `userName` will be the user's name, otherwise it
+      // will be `'default name'`
+    });
+  
+    findUser().then(function (user) {
+      throw new Error('Found user, but still unhappy');
+    }, function (reason) {
+      throw new Error('`findUser` rejected and we're unhappy');
+    }).then(function (value) {
+      // never reached
+    }, function (reason) {
+      // if `findUser` fulfilled, `reason` will be 'Found user, but still unhappy'.
+      // If `findUser` rejected, `reason` will be '`findUser` rejected and we're unhappy'.
+    });
+    ```
+    If the downstream promise does not specify a rejection handler, rejection reasons will be propagated further downstream.
+  
+    ```js
+    findUser().then(function (user) {
+      throw new PedagogicalException('Upstream error');
+    }).then(function (value) {
+      // never reached
+    }).then(function (value) {
+      // never reached
+    }, function (reason) {
+      // The `PedgagocialException` is propagated all the way down to here
+    });
+    ```
+  
+    Assimilation
+    ------------
+  
+    Sometimes the value you want to propagate to a downstream promise can only be
+    retrieved asynchronously. This can be achieved by returning a promise in the
+    fulfillment or rejection handler. The downstream promise will then be pending
+    until the returned promise is settled. This is called *assimilation*.
+  
+    ```js
+    findUser().then(function (user) {
+      return findCommentsByAuthor(user);
+    }).then(function (comments) {
+      // The user's comments are now available
+    });
+    ```
+  
+    If the assimliated promise rejects, then the downstream promise will also reject.
+  
+    ```js
+    findUser().then(function (user) {
+      return findCommentsByAuthor(user);
+    }).then(function (comments) {
+      // If `findCommentsByAuthor` fulfills, we'll have the value here
+    }, function (reason) {
+      // If `findCommentsByAuthor` rejects, we'll have the reason here
+    });
+    ```
+  
+    Simple Example
+    --------------
+  
+    Synchronous Example
+  
+    ```javascript
+    let result;
+  
+    try {
+      result = findResult();
+      // success
+    } catch(reason) {
+      // failure
+    }
+    ```
+  
+    Errback Example
+  
+    ```js
+    findResult(function(result, err){
+      if (err) {
+        // failure
+      } else {
+        // success
+      }
+    });
+    ```
+  
+    Promise Example;
+  
+    ```javascript
+    findResult().then(function(result){
+      // success
+    }, function(reason){
+      // failure
+    });
+    ```
+  
+    Advanced Example
+    --------------
+  
+    Synchronous Example
+  
+    ```javascript
+    let author, books;
+  
+    try {
+      author = findAuthor();
+      books  = findBooksByAuthor(author);
+      // success
+    } catch(reason) {
+      // failure
+    }
+    ```
+  
+    Errback Example
+  
+    ```js
+  
+    function foundBooks(books) {
+  
+    }
+  
+    function failure(reason) {
+  
+    }
+  
+    findAuthor(function(author, err){
+      if (err) {
+        failure(err);
+        // failure
+      } else {
+        try {
+          findBoooksByAuthor(author, function(books, err) {
+            if (err) {
+              failure(err);
+            } else {
+              try {
+                foundBooks(books);
+              } catch(reason) {
+                failure(reason);
+              }
+            }
+          });
+        } catch(error) {
+          failure(err);
+        }
+        // success
+      }
+    });
+    ```
+  
+    Promise Example;
+  
+    ```javascript
+    findAuthor().
+      then(findBooksByAuthor).
+      then(function(books){
+        // found books
+    }).catch(function(reason){
+      // something went wrong
+    });
+    ```
+  
+    @method then
+    @param {Function} onFulfilled
+    @param {Function} onRejected
+    Useful for tooling.
+    @return {Promise}
+  */
+  then: then,
+
+  /**
+    `catch` is simply sugar for `then(undefined, onRejection)` which makes it the same
+    as the catch block of a try/catch statement.
+  
+    ```js
+    function findAuthor(){
+      throw new Error('couldn't find that author');
+    }
+  
+    // synchronous
+    try {
+      findAuthor();
+    } catch(reason) {
+      // something went wrong
+    }
+  
+    // async with promises
+    findAuthor().catch(function(reason){
+      // something went wrong
+    });
+    ```
+  
+    @method catch
+    @param {Function} onRejection
+    Useful for tooling.
+    @return {Promise}
+  */
+  'catch': function _catch(onRejection) {
+    return this.then(null, onRejection);
+  }
+};
+
+/*global self*/
+function polyfill$1() {
+    var local = undefined;
+
+    if (typeof global !== 'undefined') {
+        local = global;
+    } else if (typeof self !== 'undefined') {
+        local = self;
+    } else {
+        try {
+            local = Function('return this')();
+        } catch (e) {
+            throw new Error('polyfill failed because global object is unavailable in this environment');
+        }
+    }
+
+    var P = local.Promise;
+
+    if (P) {
+        var promiseToString = null;
+        try {
+            promiseToString = Object.prototype.toString.call(P.resolve());
+        } catch (e) {
+            // silently ignored
+        }
+
+        if (promiseToString === '[object Promise]' && !P.cast) {
+            return;
+        }
+    }
+
+    local.Promise = Promise$2;
+}
+
+// Strange compat..
+Promise$2.polyfill = polyfill$1;
+Promise$2.Promise = Promise$2;
+
+return Promise$2;
+
+})));
+
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(5)))
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+// shim for using process in browser
+var process = module.exports = {};
+
+// cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+
+var cachedSetTimeout;
+var cachedClearTimeout;
+
+function defaultSetTimout() {
+    throw new Error('setTimeout has not been defined');
+}
+function defaultClearTimeout () {
+    throw new Error('clearTimeout has not been defined');
+}
+(function () {
+    try {
+        if (typeof setTimeout === 'function') {
+            cachedSetTimeout = setTimeout;
+        } else {
+            cachedSetTimeout = defaultSetTimout;
+        }
+    } catch (e) {
+        cachedSetTimeout = defaultSetTimout;
+    }
+    try {
+        if (typeof clearTimeout === 'function') {
+            cachedClearTimeout = clearTimeout;
+        } else {
+            cachedClearTimeout = defaultClearTimeout;
+        }
+    } catch (e) {
+        cachedClearTimeout = defaultClearTimeout;
+    }
+} ())
+function runTimeout(fun) {
+    if (cachedSetTimeout === setTimeout) {
+        //normal enviroments in sane situations
+        return setTimeout(fun, 0);
+    }
+    // if setTimeout wasn't available but was latter defined
+    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+        cachedSetTimeout = setTimeout;
+        return setTimeout(fun, 0);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedSetTimeout(fun, 0);
+    } catch(e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+            return cachedSetTimeout.call(null, fun, 0);
+        } catch(e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+            return cachedSetTimeout.call(this, fun, 0);
+        }
+    }
+
+
+}
+function runClearTimeout(marker) {
+    if (cachedClearTimeout === clearTimeout) {
+        //normal enviroments in sane situations
+        return clearTimeout(marker);
+    }
+    // if clearTimeout wasn't available but was latter defined
+    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+        cachedClearTimeout = clearTimeout;
+        return clearTimeout(marker);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedClearTimeout(marker);
+    } catch (e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+            return cachedClearTimeout.call(null, marker);
+        } catch (e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+            return cachedClearTimeout.call(this, marker);
+        }
+    }
+
+
+
+}
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+    if (!draining || !currentQueue) {
+        return;
+    }
+    draining = false;
+    if (currentQueue.length) {
+        queue = currentQueue.concat(queue);
+    } else {
+        queueIndex = -1;
+    }
+    if (queue.length) {
+        drainQueue();
+    }
+}
+
+function drainQueue() {
+    if (draining) {
+        return;
+    }
+    var timeout = runTimeout(cleanUpNextTick);
+    draining = true;
+
+    var len = queue.length;
+    while(len) {
+        currentQueue = queue;
+        queue = [];
+        while (++queueIndex < len) {
+            if (currentQueue) {
+                currentQueue[queueIndex].run();
+            }
+        }
+        queueIndex = -1;
+        len = queue.length;
+    }
+    currentQueue = null;
+    draining = false;
+    runClearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) {
+        for (var i = 1; i < arguments.length; i++) {
+            args[i - 1] = arguments[i];
+        }
+    }
+    queue.push(new Item(fun, args));
+    if (queue.length === 1 && !draining) {
+        runTimeout(drainQueue);
+    }
+};
+
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function () {
+    this.fun.apply(null, this.array);
+};
+process.title = 'browser';
+process.browser = true;
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) { return [] }
+
+process.binding = function (name) {
+    throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () { return '/' };
+process.chdir = function (dir) {
+    throw new Error('process.chdir is not supported');
+};
+process.umask = function() { return 0; };
+
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
+
+/* (ignored) */
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ })
+/******/ ]);
