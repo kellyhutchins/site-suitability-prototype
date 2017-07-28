@@ -42,49 +42,11 @@ export default class Main extends React.Component<IComponentProps, IComponentSta
             itemWidth: '100%',
             maps: [
                 {
-                    id: 'ec108b241fe24cbab6313c0134e53cec',
+                    id: props.boilerplate.config.webmapid,
                     key: Math.random().toString(36).substring(5),
-                    liveRendering: false,
-                    title: 'Map 1',
-                    exposedProperties: {
-                        wtVac: {
-                            description: `wtVac is a variable in the arcade script.`,
-                            value: 50,
-                            inputType: 'range',
-                            min: 0,
-                            max: 100,
-                            interval: 1
-                        },
-                        wtImpR: {
-                            description: `This is another variable.`,
-                            value: 20,
-                            inputType: 'range',
-                            min: 0,
-                            max: 100,
-                            interval: 1
-                        },
-                        wtYear: {
-                            value: 10,
-                            inputType: 'range',
-                            min: 0,
-                            max: 100,
-                            interval: 1
-                        },
-                        wtLanduse: {
-                            value: 10,
-                            inputType: 'range',
-                            min: 0,
-                            max: 100,
-                            interval: 1
-                        },
-                        wtRFAR: {
-                            value: 10,
-                            inputType: 'range',
-                            min: 0,
-                            max: 100,
-                            interval: 1
-                        }
-                    }
+                    liveRendering: props.boilerplate.config.liveRenderingEnabled,
+                    title: props.boilerplate.config.windowTitle,
+                    exposedProperties: props.boilerplate.config.exposedProperties
                 }
             ],
             mapOrder: 'row'

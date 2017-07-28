@@ -84,7 +84,7 @@ export default class MapWindow extends React.Component<IComponentProps, ICompone
                 <WebMap
                     className="map-container"
                     id={this.props.map.id}
-                    loadComponent={<Loader />}
+                    loadComponent={<Loader message="Loading.." />}
                     mapProperties={{ basemap: 'osm' as __esri.BasemapProperties }}
                     viewProperties={ this.props.map.viewpoint ? { viewpoint: this.props.map.viewpoint } : {}}
                     onLoad={this.handleMapLoad}

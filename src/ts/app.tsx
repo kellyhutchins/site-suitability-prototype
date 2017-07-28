@@ -1,7 +1,7 @@
 import esriPromise, { esriBootstrap } from 'esri-promise';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import Main from './components';
+import BaseLoader from './BaseLoader';
 
 import '../css/index.scss';
 
@@ -34,7 +34,7 @@ esriBootstrap('https://js.arcgis.com/4.4/', dojoConfig).then(() => {
     ]).then(([appConfigJSON, baseConfigJSON, i18n, ApplicationBase]) => {
         const boilerplate = new ApplicationBase({ config: JSON.parse(appConfigJSON), settings: JSON.parse(baseConfigJSON) });
         ReactDOM.render(
-            <Main boilerplate={boilerplate} i18n={i18n} />,
+            <BaseLoader boilerplate={boilerplate} i18n={i18n} />,
             document.getElementById('react-container')
         );
     });

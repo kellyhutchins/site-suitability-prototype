@@ -1,18 +1,14 @@
 import * as React from 'react';
 
-const centerStyle = {
-    left: '50%',
-    marginRight: '-50%',
-    position: 'absolute',
-    top: '50%',
-    transform: 'translate(-50%, -50%)'
-};
+interface ILoadComponentProps {
+    message: string;
+}
 
-export default (props) => (
-    <div style={centerStyle as any}>
+export default (props: ILoadComponentProps) => (
+    <div className="center-style">
         <div className="loader is-active padding-leader-3 padding-trailer-3 center-style">
             <div className="loader-bars"></div>
-            <div className="loader-text">Loading..</div>
+            <div className="loader-text">{props.message}</div>
         </div>
     </div>
 );
