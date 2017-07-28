@@ -1,0 +1,3 @@
+[submodule "src/application-base-js"]
+	path = src/application-base-js
+	url = https://github.com/Esri/application-base-js.git
