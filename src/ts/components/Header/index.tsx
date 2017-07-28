@@ -1,12 +1,16 @@
 import * as React from 'react';
 
-export default (props) => (
+interface IHeaderProps {
+    i18n: any;
+}
+
+export default (props: IHeaderProps) => (
     <header id="app-nav" className="top-nav fade-in">
         <div className="grid-container">
             <div className="column-24">
                 <div className="tablet-hide">
                     <a className="skip-to-content" href="#skip-to-content">Skip To Content</a>
-                    <a href="#" className="top-nav-title">Site Suitability Prototype</a>
+                    <a href="#" className="top-nav-title">{props.i18n.title}</a>
                 </div>
 
                 <div className="tablet-show top-nav-flex">
@@ -20,7 +24,7 @@ export default (props) => (
                         </a>
                     </nav>
                     <header className="top-nav-flex-title">
-                        <a href="/" className="top-nav-link">Site Suitability Prototype</a>
+                        <a href="/" className="top-nav-link">{props.i18n.title}</a>
                     </header>
                 </div>
             </div>

@@ -123,7 +123,7 @@ export default class Main extends React.Component<IComponentProps, IComponentSta
         ));
         return (
             <div className="app-container">
-                <Header />
+                <Header i18n={this.props.i18n} />
                 <div
                     className="window-container"
                     style={{ width: this.state.width, height: this.state.height }}
