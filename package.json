@@ -1,5 +1,5 @@
 {
-  "name": "test-preact-arcgis",
+  "name": "site-suitability-prototype",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nicksenger/test-preact-arcgis.git"
+    "url": "git+https://devtopia.esri.com/nick9079/site-suitability-prototype.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/nicksenger/test-preact-arcgis/issues"
+    "url": "https://devtopia.esri.com/nick9079/site-suitability-prototype/issues"
   },
-  "homepage": "https://github.com/nicksenger/test-preact-arcgis#readme",
+  "homepage": "https://devtopia.esri.com/nick9079/site-suitability-prototype#readme",
   "dependencies": {
     "preact": "^8.2.1",
     "preact-compat": "^3.16.0",
