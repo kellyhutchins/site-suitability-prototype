@@ -44,7 +44,8 @@ module.exports = {
         new ExtractTextPlugin('bundle.css'),
         new CopyWebpackPlugin([
             { from: 'src/config', to: 'config' },
-            { from: 'src/application-base-js', to: 'application-base-js' }
+            { from: 'src/application-base-js/ApplicationBase.js', to: 'application-base-js' },
+            { from: 'src/application-base-js/declareDecorator.js', to: 'application-base-js' }
         ])
     ],
 
